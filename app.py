@@ -1,8 +1,11 @@
-import streamlit as st
+import re
+import unicodedata
+from pathlib import Path
+from difflib import SequenceMatcher
+
 import pandas as pd
 import plotly.express as px
-from pathlib import Path
-from html import escape
+import streamlit as st
 
 
 # ============================================================
@@ -13,90 +16,54 @@ st.set_page_config(
     page_title="DF Finder",
     page_icon="🌲",
     layout="wide",
-    initial_sidebar_state="expanded"
 )
 
 
 # ============================================================
-# Styling
+# Light styling
 # ============================================================
 
 st.markdown(
     """
     <style>
-    .main .block-container {
-        padding-top: 2rem;
-        padding-bottom: 3rem;
-        max-width: 1350px;
+    .main-title {
+        font-size: 2.4rem;
+        font-weight: 750;
+        margin-bottom: 0.1rem;
     }
-    .hero-box {
-        padding: 1.4rem 1.6rem;
-        border-radius: 18px;
-        background: linear-gradient(135deg, #f4f8f4 0%, #eef5ef 100%);
-        border: 1px solid #d8e5d8;
-        margin-bottom: 1.2rem;
+    .subtitle {
+        font-size: 1.05rem;
+        color: #4b5563;
+        margin-bottom: 1rem;
     }
-    .small-caps {
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.78rem;
-        color: #5d6b5d;
-        font-weight: 700;
-    }
-    .hero-title {
-        font-size: 2.35rem;
-        line-height: 1.1;
-        font-weight: 800;
-        margin: 0.2rem 0 0.4rem 0;
-        color: #173b22;
-    }
-    .hero-subtitle {
-        font-size: 1.03rem;
-        color: #334233;
-        max-width: 950px;
-    }
-    .section-card {
-        padding: 1rem 1.1rem;
-        border-radius: 14px;
-        border: 1px solid #e2e8e2;
-        background-color: #ffffff;
-        margin-bottom: 0.8rem;
+    .small-muted {
+        color: #6b7280;
+        font-size: 0.92rem;
     }
     .evidence-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
         padding: 1rem 1.1rem;
-        border-radius: 14px;
-        border: 1px solid #dde6dd;
-        background-color: #fbfdfb;
-        margin-bottom: 0.85rem;
+        margin-bottom: 0.9rem;
+        background-color: #ffffff;
     }
-    .evidence-title {
-        font-size: 1.02rem;
-        font-weight: 750;
-        color: #173b22;
-        margin-bottom: 0.2rem;
-    }
-    .muted {
-        color: #637063;
-        font-size: 0.92rem;
+    .reference-text {
+        font-size: 0.96rem;
+        line-height: 1.45;
     }
     .badge {
         display: inline-block;
-        padding: 0.18rem 0.48rem;
+        padding: 0.15rem 0.45rem;
         margin-right: 0.25rem;
-        margin-top: 0.15rem;
+        margin-bottom: 0.25rem;
         border-radius: 999px;
-        background-color: #edf4ed;
-        color: #234b2a;
+        background-color: #eef2f7;
+        color: #374151;
         font-size: 0.78rem;
-        border: 1px solid #d6e4d6;
-    }
-    .doi-button a {
-        text-decoration: none;
-        font-weight: 650;
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 
@@ -114,38 +81,233 @@ def load_data():
 
     df_values["df_value"] = pd.to_numeric(df_values["df_value"], errors="coerce")
 
-    # Make sure expected text columns exist even if the workbook changes later.
-    for col in [
-        "df_id", "study_id", "product_group", "wood_product", "alternative_product",
-        "end_use", "geography", "notes", "evidence_quality", "sweden_relevance"
-    ]:
-        if col not in df_values.columns:
-            df_values[col] = pd.NA
-
-    for col in [
-        "study_id", "authors", "year", "title", "journal", "doi", "country_region", "notes"
-    ]:
-        if col not in studies.columns:
-            studies[col] = pd.NA
-
     return df_values, studies
 
 
-df_values, studies = load_data()
+# ============================================================
+# Bibliography parsing and formatting
+# ============================================================
+
+def is_missing(value) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, float) and pd.isna(value):
+        return True
+    text = str(value).strip()
+    return text == "" or text.lower() in {"nan", "none", "not available", "not specified", "…"}
+
+
+def clean_text(value) -> str:
+    if is_missing(value):
+        return ""
+    text = str(value).replace("\n", " ").replace("\t", " ").strip()
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def normalize_text(text: str) -> str:
+    text = clean_text(text).lower()
+    text = unicodedata.normalize("NFKD", text)
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def parse_bibtex_fields(entry_text: str) -> dict:
+    fields = {}
+    # Robust enough for the ResearchRabbit BibTeX-style export used here.
+    pattern = re.compile(r"(\w+)\s*=\s*\{(.*?)\}\s*,?", re.DOTALL)
+    for key, value in pattern.findall(entry_text):
+        fields[key.lower()] = clean_text(value)
+    return fields
+
+
+def parse_bibtex_file(path: Path) -> dict:
+    if not path.exists():
+        return {}
+
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    entries = {}
+
+    # Split at each BibTeX entry. This avoids depending on a full BibTeX parser.
+    chunks = re.split(r"\n\s*@", text)
+    for chunk in chunks:
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        if not chunk.startswith("article") and not chunk.startswith("book") and not chunk.startswith("misc"):
+            continue
+
+        header_match = re.match(r"\w+\s*\{\s*([^,]+),", chunk)
+        if not header_match:
+            continue
+
+        bib_key = clean_text(header_match.group(1))
+        fields = parse_bibtex_fields(chunk)
+        fields["bib_key"] = bib_key
+        entries[bib_key] = fields
+
+    return entries
+
+
+def split_authors(author_field: str) -> list[str]:
+    if is_missing(author_field):
+        return []
+    return [clean_text(a) for a in re.split(r"\s+and\s+", author_field) if clean_text(a)]
+
+
+def abbreviate_author(name: str) -> str:
+    """Convert 'Firstname Middlename Lastname' into Vancouver-like 'Lastname FM'."""
+    name = clean_text(name)
+    if not name:
+        return ""
+
+    # Handle 'Last, First' if ever present.
+    if "," in name:
+        last, rest = [part.strip() for part in name.split(",", 1)]
+        initials = "".join(part[0].upper() for part in re.split(r"[\s\-]+", rest) if part)
+        return f"{last} {initials}".strip()
+
+    parts = name.split()
+    if len(parts) == 1:
+        return parts[0]
+
+    last = parts[-1]
+    given = parts[:-1]
+    initials = "".join(part[0].upper() for part in given if part and part[0].isalpha())
+    return f"{last} {initials}".strip()
+
+
+def format_authors_vancouver(author_field: str, max_authors: int = 6) -> str:
+    authors = split_authors(author_field)
+    if not authors:
+        return "Unknown author"
+
+    formatted = [abbreviate_author(a) for a in authors]
+    formatted = [a for a in formatted if a]
+
+    if len(formatted) > max_authors:
+        return ", ".join(formatted[:max_authors]) + ", et al"
+    return ", ".join(formatted)
+
+
+def format_vancouver_from_bib(entry: dict) -> str:
+    authors = format_authors_vancouver(entry.get("author", ""))
+    title = clean_text(entry.get("title", ""))
+    journal = clean_text(entry.get("journal", ""))
+    year = clean_text(entry.get("year", ""))
+
+    parts = []
+    if authors:
+        parts.append(authors + ".")
+    if title:
+        parts.append(title.rstrip(".") + ".")
+    if journal:
+        parts.append(journal.rstrip(".") + ".")
+    if year:
+        parts.append(year.rstrip(".") + ".")
+
+    return " ".join(parts).strip()
+
+
+def format_vancouver_from_study(row: pd.Series) -> str:
+    authors = clean_text(row.get("authors", ""))
+    title = clean_text(row.get("title", ""))
+    journal = clean_text(row.get("journal_or_source", row.get("journal", "")))
+    year = clean_text(row.get("year", ""))
+
+    # The cleaned Excel often already has 'Bergman et al.'; keep it if full authors are unavailable.
+    if not authors:
+        authors = "Unknown author"
+
+    parts = []
+    parts.append(authors.rstrip(".") + ".")
+    if title:
+        parts.append(title.rstrip(".") + ".")
+    if journal:
+        parts.append(journal.rstrip(".") + ".")
+    if year:
+        parts.append(str(year).rstrip(".") + ".")
+    return " ".join(parts).strip()
+
+
+def first_author_last_from_bib(entry: dict) -> str:
+    authors = split_authors(entry.get("author", ""))
+    if not authors:
+        return ""
+    first = authors[0]
+    if "," in first:
+        last = first.split(",", 1)[0]
+    else:
+        last = first.split()[-1]
+    return normalize_text(last)
+
+
+def build_bib_indices(entries: dict) -> dict:
+    by_doi = {}
+    by_author_year = {}
+    by_title = {}
+
+    for key, entry in entries.items():
+        doi = normalize_text(entry.get("doi", ""))
+        if doi:
+            by_doi[doi] = key
+
+        year = clean_text(entry.get("year", ""))
+        last = first_author_last_from_bib(entry)
+        if last and year:
+            by_author_year.setdefault((last, str(year)), []).append(key)
+
+        title = normalize_text(entry.get("title", ""))
+        if title:
+            by_title[key] = title
+
+    return {"by_doi": by_doi, "by_author_year": by_author_year, "by_title": by_title}
+
+
+def find_bib_entry_for_study(study_row: pd.Series, entries: dict, indices: dict) -> dict | None:
+    if not entries:
+        return None
+
+    doi = normalize_text(study_row.get("doi", ""))
+    if doi and doi in indices["by_doi"]:
+        return entries[indices["by_doi"][doi]]
+
+    title = normalize_text(study_row.get("title", ""))
+    if title:
+        best_key = None
+        best_score = 0
+        for key, bib_title in indices["by_title"].items():
+            score = SequenceMatcher(None, title, bib_title).ratio()
+            if score > best_score:
+                best_key = key
+                best_score = score
+        if best_key and best_score >= 0.72:
+            return entries[best_key]
+
+    short_ref = normalize_text(study_row.get("short_ref", ""))
+    year = clean_text(study_row.get("year", ""))
+    if short_ref and year:
+        # Short refs can include descriptors. The first word is usually the first author.
+        first_token = short_ref.split()[0]
+        candidates = indices["by_author_year"].get((first_token, str(year)), [])
+        if len(candidates) == 1:
+            return entries[candidates[0]]
+
+    return None
+
+
+@st.cache_data
+def load_bibliography():
+    bib_path = Path("data") / "biblio.txt"
+    entries = parse_bibtex_file(bib_path)
+    indices = build_bib_indices(entries)
+    return entries, indices
 
 
 # ============================================================
 # Helper functions
 # ============================================================
-
-def clean_text(value, fallback="Not specified"):
-    if pd.isna(value):
-        return fallback
-    text = str(value).strip()
-    if text == "" or text.lower() in {"nan", "none", "not available"}:
-        return fallback
-    return text
-
 
 def unique_options(df, column):
     if column not in df.columns:
@@ -157,13 +319,13 @@ def apply_filters(df, product_group, end_use, geography):
     filtered = df.copy()
 
     if product_group != "All":
-        filtered = filtered[filtered["product_group"].astype(str) == product_group]
+        filtered = filtered[filtered["product_group"] == product_group]
 
     if end_use != "All":
-        filtered = filtered[filtered["end_use"].astype(str) == end_use]
+        filtered = filtered[filtered["end_use"] == end_use]
 
     if geography != "All":
-        filtered = filtered[filtered["geography"].astype(str) == geography]
+        filtered = filtered[filtered["geography"] == geography]
 
     return filtered
 
@@ -176,24 +338,18 @@ def calculate_recommendation(filtered, mode):
 
     if mode == "Conservative":
         recommended = values.quantile(0.25)
-        method = "25th percentile of matching DF observations"
     elif mode == "Optimistic":
         recommended = values.quantile(0.75)
-        method = "75th percentile of matching DF observations"
     else:
         recommended = values.median()
-        method = "median of matching DF observations"
 
     return {
-        "recommended": round(float(recommended), 2),
-        "min": round(float(values.min()), 2),
-        "max": round(float(values.max()), 2),
-        "median": round(float(values.median()), 2),
-        "q25": round(float(values.quantile(0.25)), 2),
-        "q75": round(float(values.quantile(0.75)), 2),
+        "recommended": round(recommended, 2),
+        "min": round(values.min(), 2),
+        "max": round(values.max(), 2),
+        "median": round(values.median(), 2),
         "n_values": int(len(values)),
         "n_studies": int(filtered["study_id"].nunique()),
-        "method": method
     }
 
 
@@ -207,166 +363,193 @@ def confidence_label(n_values, n_studies):
     return "No data"
 
 
-def doi_url(doi):
-    doi = clean_text(doi, fallback="")
+def make_doi_link(doi: str) -> str:
+    doi = clean_text(doi)
     if not doi:
-        return None
-    doi = doi.replace("https://doi.org/", "").replace("http://dx.doi.org/", "").strip()
-    if doi.lower() in {"not available", "na", "n/a"}:
-        return None
+        return ""
+    doi = doi.replace("https://doi.org/", "").replace("http://doi.org/", "")
     return f"https://doi.org/{doi}"
 
 
-def format_vancouver_reference(row, number=None):
-    authors = clean_text(row.get("authors"), fallback="Unknown author")
-    title = clean_text(row.get("title"), fallback="Untitled study")
-    journal = clean_text(row.get("journal"), fallback="")
-    year = clean_text(row.get("year"), fallback="n.d.")
-    doi = clean_text(row.get("doi"), fallback="")
-
-    # Vancouver-inspired compact style. Exact author initials depend on available metadata.
-    prefix = f"{number}. " if number is not None else ""
-    pieces = [f"{prefix}{authors}. {title}."]
-    if journal:
-        pieces.append(f" {journal}.")
-    if year:
-        pieces.append(f" {year}.")
-    if doi:
-        pieces.append(f" doi:{doi}")
-    return "".join(pieces)
-
-
-def build_supporting_data(filtered, studies):
-    merged = filtered.merge(
-        studies,
-        on="study_id",
-        how="left",
-        suffixes=("", "_study")
-    )
-
+def attach_reference_numbers(filtered_full: pd.DataFrame) -> pd.DataFrame:
+    out = filtered_full.copy()
     study_order = (
-        merged[["study_id", "authors", "year", "title", "journal", "doi", "country_region", "notes_study"]]
-        .drop_duplicates(subset=["study_id"])
-        .sort_values(["year", "authors"], na_position="last")
-        .reset_index(drop=True)
+        out[["study_id", "short_ref", "year"]]
+        .drop_duplicates()
+        .sort_values(["short_ref", "year", "study_id"], na_position="last")
     )
-    study_order["bib_number"] = range(1, len(study_order) + 1)
+    ref_map = {sid: i + 1 for i, sid in enumerate(study_order["study_id"].tolist())}
+    out["ref_no"] = out["study_id"].map(ref_map)
+    out["citation_label"] = out["ref_no"].apply(lambda x: f"[{int(x)}]" if pd.notna(x) else "")
+    return out
 
-    merged = merged.merge(
-        study_order[["study_id", "bib_number"]],
-        on="study_id",
-        how="left"
+
+def render_supporting_evidence(filtered_full: pd.DataFrame, bib_entries: dict, bib_indices: dict):
+    st.subheader("Supporting evidence")
+    st.caption(
+        "Each card groups the DF observations by source publication. References are formatted in Vancouver style where metadata are available."
     )
 
-    return merged, study_order
+    if filtered_full.empty:
+        st.warning("No supporting evidence available for this filter combination.")
+        return
+
+    study_ids = (
+        filtered_full[["study_id", "ref_no", "short_ref", "year"]]
+        .drop_duplicates()
+        .sort_values("ref_no")
+    )
+
+    for _, study_stub in study_ids.iterrows():
+        study_id = study_stub["study_id"]
+        ref_no = int(study_stub["ref_no"])
+        group = filtered_full[filtered_full["study_id"] == study_id].copy()
+        study_row = group.iloc[0]
+
+        bib_entry = find_bib_entry_for_study(study_row, bib_entries, bib_indices)
+        if bib_entry:
+            citation = format_vancouver_from_bib(bib_entry)
+            doi = clean_text(bib_entry.get("doi", ""))
+        else:
+            citation = format_vancouver_from_study(study_row)
+            doi = clean_text(study_row.get("doi", ""))
+
+        short_ref = clean_text(study_row.get("short_ref", "")) or f"Study {study_id}"
+        year = clean_text(study_row.get("year", ""))
+        heading = f"[{ref_no}] {short_ref}"
+        if year:
+            heading += f" ({year})"
+
+        with st.expander(heading, expanded=ref_no <= 3):
+            st.markdown(f"<div class='reference-text'>{citation}</div>", unsafe_allow_html=True)
+
+            doi_link = make_doi_link(doi)
+            if doi_link:
+                st.markdown(f"[Open DOI]({doi_link})")
+
+            st.markdown("**DF observations from this source**")
+            obs_cols = []
+            for col in ["wood_product", "alternative_product", "end_use", "geography", "df_value"]:
+                if col in group.columns:
+                    obs_cols.append(col)
+
+            obs = group[obs_cols].copy()
+            rename_map = {
+                "wood_product": "Wood product / product system",
+                "alternative_product": "Alternative product",
+                "end_use": "End use",
+                "geography": "Geography",
+                "df_value": "DF",
+            }
+            obs = obs.rename(columns=rename_map)
+
+            # Hide useless empty columns.
+            keep_cols = []
+            for col in obs.columns:
+                series = obs[col]
+                if not series.apply(is_missing).all():
+                    keep_cols.append(col)
+            obs = obs[keep_cols]
+
+            st.table(obs.reset_index(drop=True))
+
+            notes = [clean_text(n) for n in group.get("notes", pd.Series(dtype=str)).dropna().unique()]
+            notes = [n for n in notes if n]
+            if notes:
+                with st.expander("Methodological notes"):
+                    for note in notes:
+                        st.markdown(f"- {note}")
 
 
 # ============================================================
-# Sidebar
+# Load data
 # ============================================================
 
-assets_dir = Path("assets")
-logo_path = assets_dir / "skogforsk_logo.png"
+df_values, studies = load_data()
+bib_entries, bib_indices = load_bibliography()
 
-if logo_path.exists():
-    st.sidebar.image(str(logo_path), use_container_width=True)
-else:
-    st.sidebar.markdown("### 🌲 DF Finder")
 
-st.sidebar.caption("Prototype v0.2 · ISO 13391 / AP4")
-st.sidebar.markdown("---")
-st.sidebar.header("Product context")
+# ============================================================
+# Header
+# ============================================================
+
+logo_path = Path("assets") / "skogforsk_logo.png"
+header_left, header_right = st.columns([0.78, 0.22])
+
+with header_left:
+    st.markdown("<div class='main-title'>🌲 DF Finder</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='subtitle'>Evidence-based exploration of displacement factors for wood-based products</div>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        "Prototype decision-support platform developed in the context of the ISO 13391 framework and the Skogforsk project <i>Standard för skogens klimateffekt</i>.",
+        unsafe_allow_html=True,
+    )
+
+with header_right:
+    if logo_path.exists():
+        st.image(str(logo_path), use_container_width=True)
+    else:
+        st.markdown("**Skogforsk**")
+        st.caption("Logo placeholder")
+
+st.markdown("---")
+
+with st.expander("About this prototype", expanded=False):
+    st.markdown(
+        """
+        Displacement factors (DFs) are used to estimate the potential climate benefit associated with wood-based products substituting more greenhouse gas intensive products or energy systems.
+
+        Published DF values vary substantially because studies differ in product systems, counterfactual products, geographic scope, system boundaries, and assumptions about end-use and market realization.
+
+        This prototype is not intended to provide a single universally correct DF. It is an evidence navigation tool: it helps users explore published values, understand their spread, and identify transparent literature-based estimates for a selected product context.
+        """
+    )
+
+with st.expander("Important limitations", expanded=False):
+    st.markdown(
+        """
+        - Values shown here represent displacement potentials reported or derived from the literature. They should not automatically be interpreted as realized or guaranteed emission reductions.
+        - Recommendation values are statistical summaries of the filtered evidence subset and do not replace expert assessment.
+        - Some product categories remain heterogeneous in this prototype version and the ontology is still under active development.
+        - The app is intended for research, exploration, and dialogue. It is not an official reporting standard.
+        """
+    )
+
+
+# ============================================================
+# Sidebar filters
+# ============================================================
+
+st.sidebar.header("Select product context")
+st.sidebar.caption("Start broad, then narrow the search if needed.")
 
 product_group = st.sidebar.selectbox(
     "Product group",
     ["All"] + unique_options(df_values, "product_group"),
-    help="Broad wood-product family used to filter the DF database."
 )
 
 end_use = st.sidebar.selectbox(
     "End use",
     ["All"] + unique_options(df_values, "end_use"),
-    help="Application or market context in which the wood product is used."
 )
 
 geography = st.sidebar.selectbox(
     "Geography",
     ["All"] + unique_options(df_values, "geography"),
-    help="Geographic scope reported or inferred for the DF observation."
 )
 
 mode = st.sidebar.radio(
     "Recommendation style",
     ["Conservative", "Central", "Optimistic"],
     index=1,
-    help=(
-        "Conservative uses the lower quartile, Central uses the median, "
-        "and Optimistic uses the upper quartile of the filtered evidence."
-    )
+    help="Conservative = 25th percentile; Central = median; Optimistic = 75th percentile of matching DF observations.",
 )
 
 st.sidebar.markdown("---")
-st.sidebar.caption(
-    "This prototype is intended for exploration and methodological discussion. "
-    "It is not an official reporting tool."
-)
-
-
-# ============================================================
-# Header / hero
-# ============================================================
-
-st.markdown(
-    """
-    <div class="hero-box">
-        <div class="small-caps">Standard för skogens klimateffekt · ISO 13391 implementation support</div>
-        <div class="hero-title">🌲 DF Finder</div>
-        <div class="hero-subtitle">
-            Interactive prototype for exploring published displacement factors for wood-based products.
-            The tool helps users identify evidence-based DF ranges by product category, end use, geography,
-            and recommendation philosophy.
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
-with st.expander("About this prototype", expanded=False):
-    st.markdown(
-        """
-        Displacement factors (DFs) are used to estimate the potential climate benefit obtained when
-        wood-based products substitute more greenhouse-gas-intensive materials or energy systems.
-
-        Published DF values vary substantially because studies differ in product systems, geographic
-        context, substituted alternatives, system boundaries, end-use assumptions, and treatment of
-        value-chain emissions.
-
-        This tool is therefore not designed to provide one universally correct DF. It acts as an
-        **evidence navigation and interpretation system**: users select a context, and the app summarizes
-        the matching literature values in a transparent way.
-        """
-    )
-
-with st.expander("How to use the tool", expanded=False):
-    st.markdown(
-        """
-        1. Select a product group, end use, and geography in the sidebar.
-        2. Choose a recommendation style: conservative, central, or optimistic.
-        3. Inspect the recommended value, uncertainty range, and supporting evidence.
-        4. Use the bibliography cards to trace each DF observation back to its source.
-        """
-    )
-
-with st.expander("Limitations and interpretation notes", expanded=False):
-    st.markdown(
-        """
-        - Values represent **displacement potentials** reported or derived from the literature, not guaranteed realized emission reductions.
-        - Different studies use different system boundaries; some include value-chain emissions, end-use effects, storage effects, or broader system effects.
-        - The current ontology is under development and some categories still contain heterogeneous applications.
-        - The recommendation is a transparent statistical summary of the filtered evidence and does not replace expert judgement.
-        - This prototype is intended for research, discussion, and development; it is not an official reporting standard.
-        """
-    )
+st.sidebar.markdown("**Current version:** prototype v0.3")
+st.sidebar.caption("Database and ontology under active development.")
 
 
 # ============================================================
@@ -374,6 +557,7 @@ with st.expander("Limitations and interpretation notes", expanded=False):
 # ============================================================
 
 filtered = apply_filters(df_values, product_group, end_use, geography)
+filtered = filtered.dropna(subset=["df_value"])
 recommendation = calculate_recommendation(filtered, mode)
 
 
@@ -384,38 +568,43 @@ recommendation = calculate_recommendation(filtered, mode)
 st.subheader("Recommended displacement factor")
 
 if recommendation is None:
-    st.warning("No matching DF values found for the selected filters. Try broadening the product, end-use, or geography selection.")
+    st.warning("No matching DF values found for the selected filters.")
     st.stop()
 
 confidence = confidence_label(
     recommendation["n_values"],
-    recommendation["n_studies"]
+    recommendation["n_studies"],
 )
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Recommended DF", recommendation["recommended"])
 col2.metric("Observed range", f"{recommendation['min']} – {recommendation['max']}")
 col3.metric("DF observations", recommendation["n_values"])
-col4.metric("Evidence confidence", confidence)
-
-st.caption(
-    f"Recommendation method: {recommendation['method']}. "
-    f"The central median of the selected evidence is {recommendation['median']}."
-)
+col4.metric("Evidence density", confidence)
 
 st.info(
-    "Interpretation: the recommended value is an indicative displacement potential derived from the filtered literature subset. "
-    "It should not be interpreted as guaranteed realized substitution."
+    "The recommended value is a statistical summary of the currently filtered literature subset. It should be interpreted as an indicative displacement potential, not as a guaranteed realized climate effect."
 )
 
 
 # ============================================================
-# Supporting data / bibliography numbering
+# Merge with study metadata and assign reference numbers
 # ============================================================
 
-filtered_full, supporting_studies = build_supporting_data(filtered, studies)
-filtered_full = filtered_full.dropna(subset=["df_value"]).copy()
-filtered_full["Reference"] = filtered_full["bib_number"].apply(lambda x: f"[{int(x)}]" if pd.notna(x) else "")
+filtered_full = filtered.merge(
+    studies,
+    on="study_id",
+    how="left",
+    suffixes=("", "_study"),
+)
+
+# Fill common fields from either source when merge creates duplicates.
+for col in ["short_ref", "year"]:
+    study_col = f"{col}_study"
+    if study_col in filtered_full.columns:
+        filtered_full[col] = filtered_full[col].combine_first(filtered_full[study_col])
+
+filtered_full = attach_reference_numbers(filtered_full)
 
 
 # ============================================================
@@ -424,106 +613,55 @@ filtered_full["Reference"] = filtered_full["bib_number"].apply(lambda x: f"[{int
 
 st.subheader("Distribution of matching DF values")
 
+plot_df = filtered_full.copy()
+plot_df["Reference"] = plot_df["citation_label"].fillna("") + " " + plot_df["short_ref"].fillna("")
+
 fig = px.box(
-    filtered_full,
+    plot_df,
     y="df_value",
     points="all",
     hover_name="wood_product",
     hover_data={
         "Reference": True,
-        "study_id": True,
-        "product_group": True,
+        "df_value": True,
         "end_use": True,
         "geography": True,
-        "df_value": ":.2f",
-        "notes": False,
-        "bib_number": False,
+        "product_group": True,
+        "wood_product": False,
     },
-    title="DF value distribution for selected evidence"
+    title="DF value distribution for the selected evidence subset",
 )
 
 fig.update_layout(
     yaxis_title="Displacement factor (tCO₂e / tCO₂e biogenic carbon)",
     xaxis_title="",
     showlegend=False,
-    margin=dict(l=20, r=20, t=55, b=20)
 )
 
 st.plotly_chart(fig, use_container_width=True)
 
-st.caption("Hover over points to identify the product, DF value, and numbered source in the bibliography below.")
+
+# ============================================================
+# Supporting evidence and bibliography
+# ============================================================
+
+render_supporting_evidence(filtered_full, bib_entries, bib_indices)
 
 
 # ============================================================
-# Evidence cards
+# Methodological footer
 # ============================================================
 
-st.subheader("Supporting DF observations")
-
-for _, row in filtered_full.sort_values(["bib_number", "df_value", "wood_product"]).iterrows():
-    bib_no = int(row["bib_number"]) if pd.notna(row.get("bib_number")) else "?"
-    product = clean_text(row.get("wood_product"))
-    alternative = clean_text(row.get("alternative_product"))
-    end_use_value = clean_text(row.get("end_use"))
-    geo = clean_text(row.get("geography"))
-    df_val = row.get("df_value")
-    notes = clean_text(row.get("notes"), fallback="")
-
-    doi = row.get("doi")
-    link = doi_url(doi)
-
+st.markdown("---")
+with st.expander("How recommendation values are calculated"):
     st.markdown(
-        f"""
-        <div class="evidence-card">
-            <div class="evidence-title">[{bib_no}] {escape(product)} — DF = {df_val:.2f}</div>
-            <div class="muted">
-                <span class="badge">{escape(end_use_value)}</span>
-                <span class="badge">{escape(geo)}</span>
-                <span class="badge">Alternative: {escape(alternative)}</span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """
+        The app first filters the displacement factor database according to the selected product group, end use, and geography. It then summarizes the remaining DF observations using a transparent percentile-based rule:
 
-    if notes:
-        with st.expander(f"Methodological note for [{bib_no}] {product}"):
-            st.write(notes)
+        - **Conservative:** 25th percentile of matching observations
+        - **Central:** median of matching observations
+        - **Optimistic:** 75th percentile of matching observations
 
-
-# ============================================================
-# Bibliography
-# ============================================================
-
-st.subheader("Bibliography of supporting studies")
-
-for _, study in supporting_studies.sort_values("bib_number").iterrows():
-    bib_no = int(study["bib_number"])
-    reference = format_vancouver_reference(study, number=bib_no)
-    link = doi_url(study.get("doi"))
-    study_notes = clean_text(study.get("notes_study"), fallback="")
-
-    st.markdown(f"**{reference}**")
-    if link:
-        st.markdown(f"[Open DOI]({link})")
-    if study_notes:
-        with st.expander(f"Study notes [{bib_no}]"):
-            st.write(study_notes)
-    st.markdown("---")
-
-
-# ============================================================
-# Optional advanced view
-# ============================================================
-
-with st.expander("Advanced: show compact extraction table", expanded=False):
-    compact_cols = [
-        "df_id", "study_id", "bib_number", "product_group", "wood_product",
-        "alternative_product", "end_use", "geography", "df_value", "notes"
-    ]
-    compact_cols = [c for c in compact_cols if c in filtered_full.columns]
-    st.dataframe(
-        filtered_full[compact_cols].sort_values(["bib_number", "df_value"]),
-        use_container_width=True,
-        hide_index=True
+        The observed range is shown separately to make the spread of the literature visible. Future versions may include weighting by evidence quality, geography, system boundary, and relevance to Swedish conditions.
+        """
     )
