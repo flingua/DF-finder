@@ -1,0 +1,1457 @@
+% Exported from ResearchRabbit (https://www.researchrabbit.ai)
+
+@article{greenhouse_kirkinen_2008,
+	title = {Greenhouse impact due to the use of combustible fuels: life cycle viewpoint and relative radiative forcing commitment.},
+	doi = {10.1007/S00267-008-9145-Z},
+	author = {Kirkinen, Johanna and Palosuo, Taru and Holmgren, Kristina and Savolainen, Ilkka},
+	journal = {Environmental Management},
+	year = {2008},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/18521657},
+	researchRabbitId = {867aadcf-e81b-4384-b433-7e5de8a5b9e7}
+}
+
+
+@article{co2_gustavsson_2006,
+	title = {CO2 MITIGATION: ON METHODS AND PARAMETERS FOR COMPARISON OF FOSSIL-FUEL AND BIOFUEL SYSTEMS},
+	doi = {10.1007/S11027-006-9028-7},
+	author = {Gustavsson, Leif and Karlsson, Åsa},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2006},
+	researchRabbitId = {288e9b9a-3dff-4232-bb7a-af79d2f88aa1}
+}
+
+
+@article{costs_gustavsson_2011,
+	title = {Costs and CO2 benefits of recovering, refining and transporting logging residues for fossil fuel replacement},
+	doi = {10.1016/J.APENERGY.2010.07.026},
+	author = {Gustavsson, Leif and Eriksson, Lisa Näslund and Sathre, Roger},
+	journal = {Applied Energy},
+	year = {2011},
+	researchRabbitId = {74af3af3-ff41-476a-bb7e-5e064a71485c}
+}
+
+
+@article{wood_leturcq_2014,
+	title = {Wood preservation (carbon sequestration) or wood burning (fossil-fuel substitution), which is better for mitigating climate change?},
+	doi = {10.1007/S13595-013-0269-9},
+	author = {Leturcq, Philippe},
+	journal = {Annals of Forest Science},
+	year = {2014},
+	researchRabbitId = {242b8116-71b0-4ef8-9782-54b313caa33b}
+}
+
+
+@article{reduction_joelsson_2010,
+	title = {Reduction of CO2 emission and oil dependency with biomass-based polygeneration},
+	doi = {10.1016/J.BIOMBIOE.2010.02.005},
+	author = {Joelsson, Jonas M. and Gustavsson, Leif},
+	journal = {Biomass & Bioenergy},
+	year = {2010},
+	researchRabbitId = {ec8030a0-ebcd-4a04-8fd0-dbd784cc8599}
+}
+
+
+@article{metaanalysis_sathre_2010,
+	title = {Meta-analysis of greenhouse gas displacement factors of wood product substitution},
+	doi = {10.1016/J.ENVSCI.2009.12.005},
+	author = {Sathre, Roger and O’Connor, Jennifer},
+	journal = {Environmental Science & Policy},
+	year = {2010},
+	researchRabbitId = {50345c20-4a04-40f8-b0a1-a09045fa22a7}
+}
+
+
+@article{contribution_hildebrandt_2017,
+	title = {The contribution of wood-based construction materials for leveraging a low carbon building sector in europe},
+	doi = {10.1016/J.SCS.2017.06.013},
+	author = {Hildebrandt, Jakob and Hagemann, Nina and Thrän, Daniela},
+	journal = {Sustainable Cities and Society},
+	year = {2017},
+	researchRabbitId = {0a31c518-a564-4c63-aa68-3ea95acfadce}
+}
+
+
+@article{woodbased_buchanan_1999,
+	title = {Wood-based building materials and atmospheric carbon emissions},
+	doi = {10.1016/S1462-9011(99)00038-6},
+	author = {Buchanan, Andrew and Levine, Sarah},
+	journal = {Environmental Science & Policy},
+	year = {1999},
+	researchRabbitId = {d622939b-59cc-4206-a01e-b191e5879174}
+}
+
+
+@article{timedependent_sathre_2011,
+	title = {Time-dependent climate benefits of using forest residues to substitute fossil fuels},
+	doi = {10.1016/J.BIOMBIOE.2011.02.027},
+	author = {Sathre, Roger and Gustavsson, Leif},
+	journal = {Biomass & Bioenergy},
+	year = {2011},
+	researchRabbitId = {05eadb4f-9cf5-4394-b317-0afe2d45915c}
+}
+
+
+@article{modeling_knauf_2015,
+	title = {Modeling the CO2-effects of forest management and wood usage on a regional basis},
+	doi = {10.1186/S13021-015-0024-7},
+	author = {Knauf, Marcus and Köhl, Michael and Mues, Volker and Olschofsky, Konstantin and Frühwald, A.},
+	journal = {Carbon Balance and Management},
+	year = {2015},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/26097501},
+	researchRabbitId = {9d2b2f0a-fa09-4265-9e13-f782aeaaab89}
+}
+
+
+@article{prospects_salazar_2009,
+	title = {Prospects for carbon-neutral housing: the influence of greater wood use on the carbon footprint of a single-family residence},
+	doi = {10.1016/J.JCLEPRO.2009.06.006},
+	author = {Salazar, James and Meil, Jamie},
+	journal = {Journal of Cleaner Production},
+	year = {2009},
+	researchRabbitId = {4d5752f9-13a3-48cd-81f9-eed956360d5a}
+}
+
+
+@article{climate_soimakallio_2016,
+	title = {Climate Change Mitigation Challenge for Wood Utilization-The Case of Finland.},
+	doi = {10.1021/ACS.EST.6B00122},
+	author = {Soimakallio, Sampo and Saikku, Laura and Valsta, Lauri and Pingoud, Kim},
+	journal = {Environmental science & technology},
+	year = {2016},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/27074531},
+	researchRabbitId = {491ab14d-955c-43e2-86bf-e75b351d0edf}
+}
+
+
+@article{carbon_werner_2005,
+	title = {Carbon pool and substitution effects of an increased use of wood in buildings in Switzerland: first estimates},
+	doi = {10.1051/FOREST:2005080},
+	author = {Werner, Frank and Taverna, Ruedi and Höfer, Peter and Richter, Klaus},
+	year = {2005},
+	researchRabbitId = {538a2a45-02a5-4140-8cae-1f58b115aa47}
+}
+
+
+@article{climate_kayo_2015,
+	title = {Climate change mitigation effect of harvested wood products in regions of Japan},
+	doi = {10.1186/S13021-015-0036-3},
+	author = {Kayo, Chihiro and Tsunetsugu, Yuko and Tonosaki, Mario},
+	journal = {Carbon Balance and Management},
+	year = {2015},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/26491466},
+	researchRabbitId = {485dca13-8cce-4618-a42f-19a61873fb36}
+}
+
+
+@article{assessing_geng_2019,
+	title = {Assessing the Greenhouse Gas Mitigation Potential of Harvested Wood Products Substitution in China.},
+	doi = {10.1021/ACS.EST.8B06510},
+	author = {Geng, Aixin and Chen, Jiaxin and Yang, Hongqiang},
+	journal = {Environmental science & technology},
+	year = {2019},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/30605609},
+	researchRabbitId = {3da65021-28b6-4023-b663-ad6480511309}
+}
+
+
+@article{climate_zhen_2018,
+	title = {Climate change mitigation strategies in the forest sector: biophysical impacts and economic implications in British Columbia, Canada},
+	doi = {10.1007/S11027-016-9735-7},
+	author = {Zhen, Xu and Smyth, C. and Lemprière, Tony C. and Rampley, G. J. and Kurz, Werner A.},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2018},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/30093831},
+	researchRabbitId = {8badb46e-e315-4572-ba37-743b00029bea}
+}
+
+
+@article{fossil_pingoud_2002,
+	title = {Fossil carbon emissions associated with carbon flows of wood products.},
+	doi = {10.1023/A:1015885626596},
+	author = {Pingoud, Kim and Lehtilä, Antti},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2002},
+	researchRabbitId = {8365cb62-f429-40f7-89fb-27f6bc2df900}
+}
+
+
+@article{substitution_petersen_2003,
+	title = {Substitution between floor constructions in wood and natural stone: comparison of energy consumption, greenhouse gas emissions, and costs over the life cycle.},
+	doi = {10.1139/X03-020},
+	author = {Petersen, Ann Kristin and Solberg, Birger},
+	year = {2003},
+	researchRabbitId = {06309882-62d7-43fb-be79-6c80eec571d7}
+}
+
+
+@article{greenhouse_petersen_2002,
+	title = {Greenhouse gas emissions, life cycle inventory and cost-efficiency of using laminated wood instead of steel construction},
+	doi = {10.1016/S1462-9011(01)00044-2},
+	author = {Petersen, Ann Kristin and Solberg, Birger},
+	journal = {Environmental Science & Policy},
+	year = {2002},
+	researchRabbitId = {5bcbf030-d671-48ee-98dd-28b878503f3b}
+}
+
+
+@article{assessing_pingoud_2010,
+	title = {Assessing the integrated climatic impacts of forestry and wood products.},
+	doi = {10.14214/SF.166},
+	author = {Pingoud, Kim and Pohjola, Johanna and Valsta, Lauri},
+	year = {2010},
+	researchRabbitId = {44667cfa-7e56-42b0-8d3a-e46044146544}
+}
+
+
+@article{forest_mckechnie_2011,
+	title = {Forest bioenergy or forest carbon? Assessing trade-offs in greenhouse gas mitigation with wood-based fuels.},
+	doi = {10.1021/ES1024004},
+	author = {McKechnie, Jon and Colombo, Steve and Chen, Jiaxin and Mabee, Warren and MacLean, Heather L.},
+	journal = {Environmental science & technology},
+	year = {2011},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/21142063},
+	researchRabbitId = {5b23e56c-52ed-446d-a38f-df22fbf71f3e}
+}
+
+
+@article{wood_howard_2021,
+	title = {Wood product carbon substitution benefits: a critical review of assumptions.},
+	doi = {10.1186/S13021-021-00171-W},
+	author = {Howard, Christina and Dymond, Caren C. and Griess, Verena C. and Tolkien-Spurr, Darius and Kooten, G. Cornelis van},
+	journal = {Carbon Balance and Management},
+	year = {2021},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/33786694},
+	researchRabbitId = {9f5ec876-5915-409c-b4b5-38c6738bb582}
+}
+
+
+@article{substitution_taylor_2023,
+	title = {Substitution Estimates for Wood Products in the United States, 1990 to 2020},
+	doi = {10.13073/FPJ-D-23-00036},
+	author = {Taylor, Adam and Hurmekoski, Elias and Brandeis, Consuelo and Domke, Grant M.},
+	journal = {Forest products journal},
+	year = {2023},
+	researchRabbitId = {03adddca-9d77-43d4-a4c1-d7eeb25f4997}
+}
+
+
+@article{availability_gan_2006,
+	title = {Availability of logging residues and potential for electricity production and carbon displacement in the USA},
+	doi = {10.1016/J.BIOMBIOE.2005.12.013},
+	author = {Gan, Jianbang and Smith, C. T.},
+	journal = {Biomass & Bioenergy},
+	year = {2006},
+	researchRabbitId = {2d2a8d8b-e830-4d08-9d5b-8a4b3931948b}
+}
+
+
+@article{life_bolin_2011,
+	title = {Life cycle assessment of pentachlorophenol-treated wooden utility poles with comparisons to steel and concrete utility poles},
+	doi = {10.1016/J.RSER.2011.01.019},
+	author = {Bolin, Christopher A. and Smith, Stephen T.},
+	journal = {Renewable & Sustainable Energy Reviews},
+	year = {2011},
+	researchRabbitId = {ad195547-8837-4f0c-8d67-246843f78db3}
+}
+
+
+@article{net_baul_2017,
+	title = {Net climate impacts and economic profitability of forest biomass production and utilization in fossil fuel and fossil-based material substitution under alternative forest management},
+	doi = {10.1016/J.BIOMBIOE.2017.02.007},
+	author = {Baul, Tarit Kumar and Alam, Ashraful and Strandman, Harri and Kilpeläinen, Antti},
+	journal = {Biomass & Bioenergy},
+	year = {2017},
+	researchRabbitId = {ef6e5e52-3487-4928-88c4-8f1fd9608bc5}
+}
+
+
+@article{diversification_hurmekoski_2018,
+	title = {Diversification of the forest industries: role of new wood-based products},
+	doi = {10.1139/CJFR-2018-0116},
+	author = {Hurmekoski, Elias and Jonsson, Ragnar and Korhonen, Jaana and Jänis, Janne and Mäkinen, Marko and Leskinen, Pekka and Hetemäki, Lauri},
+	journal = {Canadian Journal of Forest Research},
+	year = {2018},
+	researchRabbitId = {63495c54-2a08-46c6-a383-56f1658f63c7}
+}
+
+
+@article{review_jasineviius_2015,
+	title = {Review of models for carbon accounting in harvested wood products},
+	doi = {10.1080/20426445.2015.1104078},
+	author = {Jasinevičius, Gediminas and Lindner, Marcus and Pingoud, Kim and Tykkyläinen, Markku},
+	year = {2015},
+	researchRabbitId = {8bef6dee-d538-4878-b9b3-ab9617569070}
+}
+
+
+@article{biomass_gustavsson_2007,
+	title = {Using biomass for climate change mitigation and oil use reduction},
+	doi = {10.1016/J.ENPOL.2007.05.023},
+	author = {Gustavsson, Leif and Holmberg, John and Dornburg, Veronika and Sathre, Roger and Eggers, Thies and Mahapatra, Krushna and Marland, Gregg},
+	journal = {Energy Policy},
+	year = {2007},
+	researchRabbitId = {14f0b0ab-4d05-4472-8a87-6e5d8d41aea2}
+}
+
+
+@article{role_gustavsson_2006,
+	title = {The Role of Wood Material for Greenhouse Gas Mitigation},
+	doi = {10.1007/S11027-006-9035-8},
+	author = {Gustavsson, Leif and Madlener, Reinhard and Hoen, Hans Fredrik and Jungmeier, Gerfried and Karjalainen, Timo and KlÖhn, S. and Mahapatra, Krushna and Pohjola, Johanna and Solberg, Birger and Spelter, Henry},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2006},
+	researchRabbitId = {fb26a8ff-354d-4e9a-b29a-7385e7e4d7a2}
+}
+
+
+@article{integrated_eriksson_2007,
+	title = {Integrated carbon analysis of forest management practices and wood substitution},
+	doi = {10.1139/X06-257},
+	author = {Eriksson, Eva and Gillespie, A. R. and Gustavsson, Leif and Langvall, Ola and Olsson, Mats and Sathre, Roger and Stendahl, John C.},
+	year = {2007},
+	researchRabbitId = {ba36cc82-0d7e-42d1-8da5-fadbe324b104}
+}
+
+
+@article{largescale_schulze_2012,
+	title = {Large‐scale bioenergy from additional harvest of forest biomass is neither sustainable nor greenhouse gas neutral},
+	doi = {10.1111/J.1757-1707.2012.01169.X},
+	author = {Schulze, Ernst‐Detlef and Körner, Christian and Law, B. E. and Haberl, Helmut and Luyssaert, Sebastiaan},
+	year = {2012},
+	researchRabbitId = {a3dedd0b-7370-4531-9def-5a417136a9ad}
+}
+
+
+@article{product_harmon_2019,
+	title = {Have product substitution carbon benefits been overestimated? A sensitivity analysis of key assumptions},
+	doi = {10.1088/1748-9326/AB1E95},
+	author = {Harmon, Mark E.},
+	journal = {Environmental Research Letters},
+	year = {2019},
+	researchRabbitId = {40f5569b-1667-4873-8251-923bc107eb40}
+}
+
+
+@article{world_schopfhauser_1998,
+	title = {World forests: The area for afforestation and their potential for fossil carbon sequestration and substitution},
+	doi = {10.1007/978-3-662-03608-2_11},
+	author = {Schopfhauser, W.},
+	journal = {Springer eBooks},
+	year = {1998},
+	researchRabbitId = {e0b2d923-3a59-4fff-a4e6-48368e63d360}
+}
+
+
+@article{alternative_york_2012,
+	title = {Do alternative energy sources displace fossil fuels},
+	doi = {10.1038/NCLIMATE1451},
+	author = {York, Richard},
+	journal = {Nature Climate Change},
+	year = {2012},
+	researchRabbitId = {65a3cef2-bf36-456c-93a8-45ea391a868b}
+}
+
+
+@article{climate_smyth_2017,
+	title = {Climate change mitigation potential of local use of harvest residues for bioenergy in Canada},
+	doi = {10.1111/GCBB.12387},
+	author = {Smyth, C. and Kurz, Werner A. and Rampley, G. J. and Lemprière, Tony C. and Schwab, Olaf},
+	year = {2017},
+	researchRabbitId = {cfef16f5-928e-4cd1-9c80-501cc74ed0ce}
+}
+
+
+@article{contribution_iordan_2018,
+	title = {Contribution of forest wood products to negative emissions: historical comparative analysis from 1960 to 2015 in Norway, Sweden and Finland},
+	doi = {10.1186/S13021-018-0101-9},
+	author = {Iordan, Cristina-Maria and Hu, Xiangping and Arvesen, Anders and Kauppi, Pekka E. and Cherubini, Francesco},
+	journal = {Carbon Balance and Management},
+	year = {2018},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/30182155},
+	researchRabbitId = {d01dfd0d-b817-4922-8c85-355f08becb1e}
+}
+
+
+@article{climate_schulze_2020,
+	title = {The climate change mitigation effect of bioenergy from sustainably managed forests in Central Europe},
+	doi = {10.1111/GCBB.12672},
+	author = {Schulze, Ernst‐Detlef and Sierra, Carlos A. and Egenolf, Vincent and Woerdehoff, Rene and Irslinger, Roland and Baldamus, Conrad and Stupak, Inge and Spellmann, Hermann},
+	journal = {GCB Bioenergy},
+	year = {2020},
+	researchRabbitId = {e96dfff6-c3ac-4d06-9851-245b4fb6c009}
+}
+
+
+@article{lca_jnsson_1998,
+	title = {LCA of Concrete and Steel Building Frames},
+	doi = {10.1007/BF02977572},
+	author = {Jönsson, Åsa and Björklund, Thomas and Tillman, Anne -Marie},
+	journal = {International Journal of Life Cycle Assessment},
+	year = {1998},
+	researchRabbitId = {4cae264f-fdf6-4dac-b057-112668673884}
+}
+
+
+@article{carbon_bergman_2014,
+	title = {The Carbon Impacts of Wood Products},
+	doi = {10.13073/FPJ-D-14-00047},
+	author = {Bergman, Richard and Puettmann, Maureen and Taylor, Adam and Skog, Kenneth E.},
+	year = {2014},
+	researchRabbitId = {08cf404e-deef-4a4b-80e0-2f337b96cfe6}
+}
+
+
+@article{tradeoffs_soimakallio_2021,
+	title = {On the trade-offs and synergies between forest carbon sequestration and substitution},
+	doi = {10.1007/S11027-021-09942-9},
+	author = {Soimakallio, Sampo and Kalliokoski, Tuomo and Lehtonen, Aleksi and Salminen, Olli},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2021},
+	researchRabbitId = {acc3302a-bad6-465e-9b57-aa1a7e3304d9}
+}
+
+
+@article{impact_hurmekoski_2020,
+	title = {Impact of structural changes in wood‐using industries on net carbon emissions in Finland},
+	doi = {10.1111/JIEC.12981},
+	author = {Hurmekoski, Elias and Myllyviita, Tanja and Seppälä, Jyri and Heinonen, Tero and Kilpeläinen, Antti and Pukkala, Timo and Mattila, Tuomas and Hetemäki, Lauri and Asikainen, Antti and Peltola, Heli},
+	journal = {Journal of Industrial Ecology},
+	year = {2020},
+	researchRabbitId = {97202b05-9ad6-465c-861b-ab816aa88980}
+}
+
+
+@article{role_schlamadinger_1996,
+	title = {The role of forest and bioenergy strategies in the global carbon cycle},
+	doi = {10.1016/0961-9534(95)00113-1},
+	author = {Schlamadinger, Bernhard and Marland, Gregg},
+	journal = {Biomass & Bioenergy},
+	year = {1996},
+	researchRabbitId = {3bdb16bf-f9de-408f-be7f-a199ae241e20}
+}
+
+
+@article{energy_gustavsson_2011,
+	title = {Energy and CO2 analysis of wood substitution in construction},
+	doi = {10.1007/S10584-010-9876-8},
+	author = {Gustavsson, Leif and Sathre, Roger},
+	journal = {Climatic Change},
+	year = {2011},
+	researchRabbitId = {0fdc407f-9567-4637-8e71-ad79d44dc70b}
+}
+
+
+@article{sequester_kallio_2013,
+	title = {Sequester or substitute—Consequences of increased production of wood based energy on the carbon balance in Finland},
+	doi = {10.1016/J.JFE.2013.05.001},
+	author = {Kallio, Maarit and Salminen, Olli and Sievänen, Risto},
+	journal = {Journal of Forest Economics},
+	year = {2013},
+	researchRabbitId = {5db5e698-d6a5-4d0d-bfdf-9a54b2d2a801}
+}
+
+
+@article{european_nabuurs_2017,
+	title = {European forests show no carbon debt, only a long parity effect☆},
+	doi = {10.1016/J.FORPOL.2016.10.009},
+	author = {Nabuurs, G.J. and Arets, E.J.M.M. and Schelhaas, M.J.},
+	journal = {Forest Policy and Economics},
+	year = {2017},
+	researchRabbitId = {027e4562-0f19-4eec-8848-1183fe75182e}
+}
+
+
+@article{climate_baul_2017,
+	title = {Climate Change Mitigation Potential in Boreal Forests: Impacts of Management, Harvest Intensity and Use of Forest Biomass to Substitute Fossil Resources},
+	doi = {10.3390/F8110455},
+	author = {Baul, Tarit Kumar and Alam, Ashraful and Ikonen, Antti and Strandman, Harri and Asikainen, Antti and Peltola, Heli and Kilpeläinen, Antti},
+	year = {2017},
+	researchRabbitId = {f7b68f21-451e-4277-a08c-23d46bfacc68}
+}
+
+
+@article{wood_myllyviita_2021,
+	title = {Wood substitution potential in greenhouse gas emission reduction–review on current state and application of displacement factors},
+	doi = {10.1186/S40663-021-00326-8},
+	author = {Myllyviita, Tanja and Soimakallio, Sampo and Judl, Jáchym and Seppälä, Jyri},
+	year = {2021},
+	researchRabbitId = {8b53bc94-f25c-47e7-b1fb-4cd573e78256}
+}
+
+
+@article{climate_gustavsson_2021,
+	title = {Climate effects of forestry and substitution of concrete buildings and fossil energy},
+	doi = {10.1016/J.RSER.2020.110435},
+	author = {Gustavsson, Leif and Truong, Nguyen Le and Sathre, Roger and Tettey, Uniben Yao Ayikoe},
+	journal = {Renewable & Sustainable Energy Reviews},
+	year = {2021},
+	researchRabbitId = {93e3dacc-6be1-4d22-94af-c4ffe00853df}
+}
+
+
+@article{national_werner_2010,
+	title = {National and global greenhouse gas dynamics of different forest management and wood use scenarios: a model-based assessment},
+	doi = {10.1016/J.ENVSCI.2009.10.004},
+	author = {Werner, Frank and Taverna, Ruedi and Höfer, Peter and Thürig, Esther and Kaufmann, Edgar},
+	journal = {Environmental Science & Policy},
+	year = {2010},
+	researchRabbitId = {e25f9fc2-2450-4cca-bf04-91d992249750}
+}
+
+
+@article{life_lippke_2011,
+	title = {Life cycle impacts of forest management and wood utilization on carbon mitigation: knowns and unknowns},
+	doi = {10.4155/CMT.11.24},
+	author = {Lippke, Bruce and Oneil, Elaine and Harrison, R. B. and Skog, Kenneth E. and Gustavsson, Leif and Sathre, Roger},
+	year = {2011},
+	researchRabbitId = {418774ba-81c3-4eed-a6fa-8496350254b3}
+}
+
+
+@article{timedynamic_hammar_2015,
+	title = {Time-Dynamic Effects on the Global Temperature When Harvesting Logging Residues for Bioenergy},
+	doi = {10.1007/S12155-015-9649-3},
+	author = {Hammar, Torun and Ortiz, Carina A. and Stendahl, Johan and Ahlgren, Serina and Hansson, Per‐Anders},
+	journal = {Bioenergy Research},
+	year = {2015},
+	researchRabbitId = {5c4f1c19-9433-4f79-bcd9-05bd468557db}
+}
+
+
+@article{effect_tettey_2019,
+	title = {Effect of different frame materials on the primary energy use of a multi storey residential building in a life cycle perspective},
+	doi = {10.1016/J.ENBUILD.2018.12.017},
+	author = {Tettey, Uniben Yao Ayikoe and Dodoo, Ambrose and Gustavsson, Leif},
+	journal = {Energy and Buildings},
+	year = {2019},
+	researchRabbitId = {68ce40b0-8b2f-4204-862d-8a83d8eecef0}
+}
+
+
+@article{wood_glover_2002,
+	title = {Wood versus concrete and steel in house construction a life cycle assessment},
+	doi = {10.1093/JOF/100.8.34},
+	author = {Glover, J. and White, Danielle and Langrish, Timothy A. G.},
+	year = {2002},
+	researchRabbitId = {bfcd8dc3-dfa4-416c-8a31-ce4160457ec6}
+}
+
+
+@article{greenhouse_werner_2006,
+	title = {Greenhouse Gas Dynamics of an Increased Use of Wood in Buildings in Switzerland},
+	doi = {10.1007/S10584-006-0427-2},
+	author = {Werner, Frank and Taverna, Ruedi and Höfer, Peter and Richter, Klaus},
+	journal = {Climatic Change},
+	year = {2006},
+	researchRabbitId = {100ad352-f714-459b-9a2e-2510697b91aa}
+}
+
+
+@article{wood_sathre_2009,
+	title = {Using wood products to mitigate climate change: External costs and structural change},
+	doi = {10.1016/J.APENERGY.2008.04.007},
+	author = {Sathre, Roger and Gustavsson, Leif},
+	journal = {Applied Energy},
+	year = {2009},
+	researchRabbitId = {8b283ea7-a6e8-44c2-a52d-2b2d046d72be}
+}
+
+
+@article{application_cherubini_2012,
+	title = {Application of probability distributions to the modeling of biogenic CO2 fluxes in life cycle assessment},
+	doi = {10.1111/J.1757-1707.2011.01156.X},
+	author = {Cherubini, Francesco and Guest, Geoffrey and Strømman, Anders Hammer},
+	year = {2012},
+	researchRabbitId = {40dfffc2-1a68-424e-988e-f4f00505470f}
+}
+
+
+@article{greenhouse_petersen_2004,
+	title = {Greenhouse Gas Emissions and Costs over the Life Cycle of Wood and Alternative Flooring Materials},
+	doi = {10.1023/B:CLIM.0000024689.70143.79},
+	author = {Petersen, Ann Kristin and Solberg, Birger},
+	journal = {Climatic Change},
+	year = {2004},
+	researchRabbitId = {476b54dd-7f21-4e0e-b5e4-5031711ab070}
+}
+
+
+@article{greenhouse_upton_2008,
+	title = {The greenhouse gas and energy impacts of using wood instead of alternatives in residential construction in the United States},
+	doi = {10.1016/J.BIOMBIOE.2007.07.001},
+	author = {Upton, B and Miner, Reid and Spinney, Mike and Heath, Linda S.},
+	journal = {Biomass & Bioenergy},
+	year = {2008},
+	researchRabbitId = {9cc0cf8e-203e-4054-93bf-5b4d1846362f}
+}
+
+
+@article{carbon_deviatkin_2020,
+	title = {Carbon footprint of an EUR-sized wooden and a plastic pallet},
+	doi = {10.1051/E3SCONF/202015803001},
+	author = {Deviatkin, Ivan and Horttanainen, Mika},
+	journal = {E3S web of conferences},
+	year = {2020},
+	researchRabbitId = {81a04525-c676-419a-8be2-f67f9e1fcb0b}
+}
+
+
+@article{global_damico_2021,
+	title = {Global potential for material substitution in building construction: The case of cross laminated timber},
+	doi = {10.1016/J.JCLEPRO.2020.123487},
+	author = {D’Amico, Bernardino and Pomponi, Francesco and Hart, Jim},
+	journal = {Journal of Cleaner Production},
+	year = {2021},
+	researchRabbitId = {cf0ad71a-0d9d-42b4-9767-7de7ad6f4b26}
+}
+
+
+@article{timedependent_sathre_2012,
+	title = {Time-dependent radiative forcing effects of forest fertilization and biomass substitution},
+	doi = {10.1007/S10533-011-9620-0},
+	author = {Sathre, Roger and Gustavsson, Leif},
+	journal = {Biogeochemistry},
+	year = {2012},
+	researchRabbitId = {5a186879-8a0b-4e0e-900e-c3822d8a839a}
+}
+
+
+@article{quantifying_cowie_2019,
+	title = {Quantifying the climate effects of forest-based bioenergy},
+	doi = {10.1016/B978-0-12-814104-5.00013-2},
+	author = {Cowie, Annette and Brandão, Miguel and Soimakallio, Sampo},
+	journal = {Elsevier eBooks},
+	year = {2019},
+	researchRabbitId = {de05c138-d5a0-4262-8246-3d0e31d9c1b2}
+}
+
+
+@article{replacing_sterman_2018,
+	title = {Does replacing coal with wood lower CO2 emissions? Dynamic lifecycle analysis of wood bioenergy},
+	doi = {10.1088/1748-9326/AAA512},
+	author = {Sterman, John D. and Siegel, Lori and Rooney‐Varga, Juliette N.},
+	journal = {Environmental Research Letters},
+	year = {2018},
+	researchRabbitId = {5dc06e7c-8504-4ff6-bc1f-03d7de169a38}
+}
+
+
+@article{energy_buchanan_1994,
+	title = {Energy and carbon dioxide implications of building construction},
+	doi = {10.1016/0378-7788(94)90024-8},
+	author = {Buchanan, Andrew and Honey, Brian G.},
+	journal = {Energy and Buildings},
+	year = {1994},
+	researchRabbitId = {7cc33fb8-c1e6-48b5-9916-8c219e651896}
+}
+
+
+@article{climate_gustavsson_2017,
+	title = {Climate change effects of forestry and substitution of carbon-intensive materials and fossil fuels},
+	doi = {10.1016/J.RSER.2016.09.056},
+	author = {Gustavsson, Leif and Haus, Sylvia and Lundblad, Mattias and Lundström, Anders and Ortiz, Carina A. and Sathre, Roger and Truong, Nguyen Le and Wikberg, Per-Erik},
+	journal = {Renewable & Sustainable Energy Reviews},
+	year = {2017},
+	researchRabbitId = {f0de8d08-cacd-4cf8-bc09-def20234b59b}
+}
+
+
+@article{assessing_knauf_2016,
+	title = {Assessing fossil fuel substitution through wood use based on long-term simulations},
+	doi = {10.1080/17583004.2016.1166427},
+	author = {Knauf, Marcus and Joosten, Rainer and Frühwald, A.},
+	journal = {Carbon Management},
+	year = {2016},
+	researchRabbitId = {1c8b41d5-3fb2-49ec-9f07-cd093072831e}
+}
+
+
+@article{cooling_hall_1991,
+	title = {COOLING THE GREENHOUSE WITH BIOENERGY},
+	doi = {10.1038/353011A0},
+	author = {Hall, D.O. and Mynick, H.E. and Williams, Robert H.},
+	journal = {Nature},
+	year = {1991},
+	researchRabbitId = {05d101c5-2fcd-4a71-83b9-b281103ff366}
+}
+
+
+@article{life_bolin_2011,
+	title = {Life cycle assessment of ACQ-treated lumber with comparison to wood plastic composite decking},
+	doi = {10.1016/J.JCLEPRO.2010.12.004},
+	author = {Bolin, Christopher A. and Smith, Stephen T.},
+	journal = {Journal of Cleaner Production},
+	year = {2011},
+	researchRabbitId = {c8b4f1de-8f13-4b31-ac4a-656e2856ee45}
+}
+
+
+@article{climate_cintas_2016,
+	title = {The climate effect of increased forest bioenergy use in Sweden: evaluation at different spatial and temporal scales},
+	doi = {10.1002/WENE.178},
+	author = {Cintas, Olivia and Berndes, Göran and Cowie, Annette and Egnell, Gustaf and Holmström, Hampus and Ågren, Göran I.},
+	year = {2016},
+	researchRabbitId = {5050a968-54ce-4e25-a3d1-24180ab95675}
+}
+
+
+@article{wood_himes_2020,
+	title = {Wood buildings as a climate solution},
+	doi = {10.1016/J.DIBE.2020.100030},
+	author = {Himes, Austin and Busby, Gwen},
+	journal = {Developments in the built environment},
+	year = {2020},
+	researchRabbitId = {0d63e461-abeb-4505-a623-a25d99835b1a}
+}
+
+
+@article{extent_bsch_2019,
+	title = {Extent and costs of forest-based climate change mitigation in Germany: accounting for substitution},
+	doi = {10.1080/17583004.2018.1560194},
+	author = {Bösch, Matthias and Elsasser, Peter and Rock, Joachim and Weimar, Holger and Dieter, Matthias},
+	journal = {Carbon Management},
+	year = {2019},
+	researchRabbitId = {729aaffd-c527-4103-ad2a-c7a4ce93fb5e}
+}
+
+
+@article{ghg_leturcq_2020,
+	title = {GHG displacement factors of harvested wood products: the myth of substitution},
+	doi = {10.1038/S41598-020-77527-8},
+	author = {Leturcq, Philippe},
+	journal = {Scientific Reports},
+	year = {2020},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/33247216},
+	researchRabbitId = {7e22b016-672b-4390-8ef2-d07b5517ee29}
+}
+
+
+@article{life_bolin_2013,
+	title = {Life Cycle Assessment of Creosote-Treated Wooden Railroad Crossties in the US with Comparisons to Concrete and Plastic Composite Railroad Crossties},
+	doi = {10.4236/JTTS.2013.32015},
+	author = {Bolin, Christopher A. and Smith, Stephen T.},
+	year = {2013},
+	researchRabbitId = {8992ced8-cac1-4761-a753-ad2dff3c361f}
+}
+
+
+@article{potential_lundmark_2014,
+	title = {Potential Roles of Swedish Forestry in the Context of Climate Change Mitigation},
+	doi = {10.3390/F5040557},
+	author = {Lundmark, Tomas and Bergh, Johan and Höfer, Peter and Lundström, Anders and Nordin, Annika and Poudel, Bishnu Chandra and Sathre, Roger and Taverna, Ruedi and Werner, Frank},
+	year = {2014},
+	researchRabbitId = {830ccdb7-deec-487f-88a0-ea8715f3fc5f}
+}
+
+
+@article{bioenergy_liberloo_2010,
+	title = {Bio-Energy Retains Its Mitigation Potential Under Elevated CO2},
+	doi = {10.1371/JOURNAL.PONE.0011648},
+	author = {Liberloo, Marion and Luyssaert, Sebastiaan and Bellassen, Valentin and Djomo, Sylvestre Njakou and Lukáč, Martin and Calfapietra, Carlo and Janssens, Ivan A. and Hoosbeek, Marcel R. and Viovy, Nicolas and Churkina, Galina and Scarascia-Mugnozza, Giuseppe and Ceulemans, R.},
+	journal = {PLoS ONE},
+	year = {2010},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/20657833},
+	researchRabbitId = {a7880eb2-a384-4719-88e0-97cd38c5ff9b}
+}
+
+
+@article{substitution_hurmekoski_2021,
+	title = {Substitution impacts of wood use at the market level: a systematic review},
+	doi = {10.1088/1748-9326/AC386F},
+	author = {Hurmekoski, Elias and Smyth, C. and Stern, Tobias and Verkerk, Pieter Johannes and Asada, Raphael},
+	journal = {Environmental Research Letters},
+	year = {2021},
+	researchRabbitId = {cc88dddd-5f3c-4f2b-8d03-c2d6e169dec2}
+}
+
+
+@article{estimating_smyth_2017,
+	title = {Estimating product and energy substitution benefits in national‐scale mitigation analyses for Canada},
+	doi = {10.1111/GCBB.12389},
+	author = {Smyth, C. and Rampley, G. J. and Lemprière, Tony C. and Schwab, Olaf and Kurz, Werner A.},
+	year = {2017},
+	researchRabbitId = {010ffddd-63d9-4a13-b23a-6f6d292e6c55}
+}
+
+
+@article{life_jnsson_1997,
+	title = {Life cycle assessment of flooring materials: Case study},
+	doi = {10.1016/S0360-1323(96)00052-2},
+	author = {Jönsson, Åsa and Tillman, A.-M. and Svensson, Torbjörn},
+	journal = {Building and Environment},
+	year = {1997},
+	researchRabbitId = {cde1fe79-f3a4-46c7-9331-e3c2b7d92632}
+}
+
+
+@article{carbon_nepal_2016,
+	title = {Carbon Mitigation Impacts of Increased Softwood Lumber and Structural Panel Use for Nonresidential Construction in the United States},
+	doi = {10.13073/FPJ-D-15-00019},
+	author = {Nepal, Prakash and Skog, Kenneth E. and McKeever, David B. and Bergman, Richard and Abt, Karen L. and Abt, Robert C.},
+	year = {2016},
+	researchRabbitId = {f63f6640-f897-44d2-aa18-844a9bd9704f}
+}
+
+
+@article{substitution_leskinen_2018,
+	title = {Substitution effects of wood-based products in climate change mitigation},
+	doi = {10.36333/FS07},
+	author = {Leskinen, Pekka and Cardellini, Giuseppe and González‐García, Sara and Hurmekoski, Elias and Sathre, Roger and Seppälä, Jyri and Smyth, C. and Stern, Tobias and Verkerk, Pieter Johannes},
+	journal = {From Science to Policy},
+	year = {2018},
+	researchRabbitId = {034681b5-154c-4c37-80d6-74831f4f7cb9}
+}
+
+
+@article{future_brjesson_1997,
+	title = {Future production and utilisation of biomass in Sweden: potentials and CO2 mitigation},
+	doi = {10.1016/S0961-9534(97)00039-1},
+	author = {Börjesson, Pål and Gustavsson, Leif and Christersson, L. and Linder, Sune},
+	journal = {Biomass & Bioenergy},
+	year = {1997},
+	researchRabbitId = {beeb6242-b8e6-460d-8e50-fc0ec6e2ae68}
+}
+
+
+@article{forest_mckechnie_2014,
+	title = {Forest carbon accounting methods and the consequences of forest bioenergy for national greenhouse gas emissions inventories},
+	doi = {10.1016/J.ENVSCI.2014.07.006},
+	author = {McKechnie, Jon and Colombo, Steve and MacLean, Heather L.},
+	journal = {Environmental Science & Policy},
+	year = {2014},
+	researchRabbitId = {bf29e2dd-9f20-4293-bf83-1deeb5923fa7}
+}
+
+
+@article{reducing_gustavsson_1995,
+	title = {Reducing CO2 emissions by substituting biomass for fossil fuels},
+	doi = {10.1016/0360-5442(95)00065-O},
+	author = {Gustavsson, Leif and Börjesson, Pål and Johansson, Bengt and Svenningsson, Per},
+	journal = {Energy},
+	year = {1995},
+	researchRabbitId = {79a0e321-5caf-4d8c-8f0a-8b35b38b5ff7}
+}
+
+
+@article{holistic_braun_2016,
+	title = {A holistic assessment of greenhouse gas dynamics from forests to the effects of wood products use in Austria},
+	doi = {10.1080/17583004.2016.1230990},
+	author = {Braun, Martin and Fritz, David and Weiss, Peter and Braschel, Nina and Büchsenmeister, Richard and Freudenschuß, Alexandra and Gschwantner, Thomas and Jandl, Robert and Ledermann, Thomas and Neumann, Markus and Pölz, Werner and Schadauer, Klemens and Schmid, Carmen and Schwarzbauer, Peter and Stern, Tobias},
+	year = {2016},
+	researchRabbitId = {3c16293f-9d1d-46e6-b791-e418d8d59cdc}
+}
+
+
+@article{quantifying_geng_2019,
+	title = {Quantifying the climate change mitigation potential of China’s furniture sector: Wood substitution benefits on emission reduction},
+	doi = {10.1016/J.ECOLIND.2019.04.036},
+	author = {Geng, Aixin and Ning, Zhuo and Zhang, Han and Yang, Hongqiang},
+	journal = {Ecological Indicators},
+	year = {2019},
+	researchRabbitId = {14198611-9776-4245-98d2-e448783cc196}
+}
+
+
+@article{towards_schlamadinger_1997,
+	title = {Towards a Standard Methodology for Greenhouse Gas Balances of Bioenergy Systems in Comparison with Fossil Energy Systems},
+	doi = {10.1016/S0961-9534(97)10032-0},
+	author = {Schlamadinger, Bernhard and Apps, Michael J. and Bohlin, Folke and Gustavsson, Leif and Jungmeier, Gerfried and Marland, Gregg and Pingoud, Kim and Savolainen, Iina},
+	journal = {Biomass & Bioenergy},
+	year = {1997},
+	researchRabbitId = {c058e435-d5a0-48b7-abf9-e4192b6b953b}
+}
+
+
+@article{climate_gustavsson_2015,
+	title = {Climate effects of bioenergy from forest residues in comparison to fossil energy},
+	doi = {10.1016/J.APENERGY.2014.10.013},
+	author = {Gustavsson, Leif and Haus, Sylvia and Ortiz, Carina A. and Sathre, Roger and Truong, Nguyen Le},
+	journal = {Applied Energy},
+	year = {2015},
+	researchRabbitId = {d72f742f-3b82-4bf4-8b1d-cd574125da2f}
+}
+
+
+@article{wood_sedjo_2002,
+	title = {Wood materials used as a means to reduce greenhouse gases (GHGs): An examination of wooden utility poles},
+	doi = {10.1023/A:1022833227481},
+	author = {Sedjo, Roger A.},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2002},
+	researchRabbitId = {e29e4399-eabc-4bb4-b1f9-32a2edce9be1}
+}
+
+
+@article{carbon_gustavsson_2006,
+	title = {Carbon Dioxide Balance of Wood Substitution: Comparing Concrete- and Wood-Framed Buildings},
+	doi = {10.1007/S11027-006-7207-1},
+	author = {Gustavsson, Leif and Pingoud, Kim and Sathre, Roger},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2006},
+	researchRabbitId = {b8c3c9e5-b808-460a-ab2a-b61ebaaf0d01}
+}
+
+
+@article{climate_brunetnavarro_2021,
+	title = {Climate mitigation by energy and material substitution of wood products has an expiry date},
+	doi = {10.1016/J.JCLEPRO.2021.127026},
+	author = {Brunet‐Navarro, Pau and Jochheim, Hubert and Cardellini, Giuseppe and Richter, Klaus and Muys, Bart},
+	journal = {Journal of Cleaner Production},
+	year = {2021},
+	researchRabbitId = {6b5c86fd-cc5a-422c-8a69-a0a8cf563b4e}
+}
+
+
+@article{cradletogate_ponder_2010,
+	title = {Cradle-to-gate life cycle inventory of vancomycin hydrochloride.},
+	doi = {10.1016/J.SCITOTENV.2009.10.057},
+	author = {Ponder, Celia S. and Overcash, Michael},
+	journal = {Science of The Total Environment},
+	year = {2010},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/19942254},
+	researchRabbitId = {925504f6-6754-4bdb-bab2-7f903bf810fc}
+}
+
+
+@article{review_geng_2017,
+	title = {Review of carbon storage function of harvested wood products and the potential of wood substitution in greenhouse gas mitigation},
+	doi = {10.1016/J.FORPOL.2017.08.007},
+	author = {Geng, Aixin and Yang, Hongqiang and Chen, Jiaxin and Hong, Yinxing},
+	journal = {Forest Policy and Economics},
+	year = {2017},
+	researchRabbitId = {16e77bef-7243-49b5-b6e7-0df23d1e7d20}
+}
+
+
+@article{substitution_hayhoe_2002,
+	title = {SUBSTITUTION OF NATURAL GAS FOR COAL: CLIMATIC EFFECTS OF UTILITY SECTOR EMISSIONS},
+	doi = {10.1023/A:1015737505552},
+	author = {Hayhoe, Katharine and Kheshgi, Haroon S. and Jain, Atul K. and Wuebbles, Donald J.},
+	journal = {Climatic Change},
+	year = {2002},
+	researchRabbitId = {9f700ec0-44d0-4f02-b175-d4640820dcf4}
+}
+
+
+@article{assessing_chen_2018,
+	title = {Assessing the greenhouse gas effects of harvested wood products manufactured from managed forests in Canada},
+	doi = {10.1093/FORESTRY/CPX056},
+	author = {Chen, Jiaxin and Ter‐Mikaelian, Michael T. and Yang, Hongqiang and Colombo, S. J.},
+	year = {2018},
+	researchRabbitId = {15bf4b83-7681-40fb-82e5-9590c6ea008c}
+}
+
+
+@article{net_kilpelinen_2016,
+	title = {Net climate impacts of forest biomass production and utilization in managed boreal forests},
+	doi = {10.1111/GCBB.12243},
+	author = {Kilpeläinen, Antti and Torssonen, Piritta and Strandman, Harri and Kellomäki, Seppo and Antti, Asikainen and Peltola, Heli},
+	year = {2016},
+	researchRabbitId = {8bb38d59-218f-403a-89a8-d6bd04702e20}
+}
+
+
+@article{circumstances_keith_2015,
+	title = {Under What Circumstances Do Wood Products from Native Forests Benefit Climate Change Mitigation?},
+	doi = {10.1371/JOURNAL.PONE.0139640},
+	author = {Keith, Heather and Lindenmayer, David B. and Macintosh, Andrew and Mackey, Brendan},
+	journal = {PloS one},
+	year = {2015},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/26436916},
+	researchRabbitId = {81a94664-7939-4f83-9560-075ba5998ff6}
+}
+
+
+@article{climate_eriksson_2012,
+	title = {Climate change mitigation through increased wood use in the European construction sector—towards an integrated modelling framework},
+	doi = {10.1007/S10342-010-0463-3},
+	author = {Eriksson, Ljusk Ola and Gustavsson, Leif and Hänninen, Riitta and Kallio, Maarit and Lyhykäinen, Henna T. and Pingoud, Kim and Pohjola, Johanna and Sathre, Roger and Solberg, Birger and Svanaes, Jarle and Valsta, Lauri},
+	journal = {European Journal of Forest Research},
+	year = {2012},
+	researchRabbitId = {26740ade-368a-4339-ab55-37ee622e2e80}
+}
+
+
+@article{lifecycle_dodoo_2014,
+	title = {Lifecycle carbon implications of conventional and low-energy multi-storey timber building systems},
+	doi = {10.1016/J.ENBUILD.2014.06.034},
+	author = {Dodoo, Ambrose and Gustavsson, Leif and Sathre, Roger},
+	journal = {Energy and Buildings},
+	year = {2014},
+	researchRabbitId = {077877b6-b1c7-4e61-b3da-c9a050c49f7b}
+}
+
+
+@article{estimating_alam_2017,
+	title = {Estimating net climate impacts of timber production and utilization in fossil fuel intensive material and energy substitution},
+	doi = {10.1139/CJFR-2016-0525},
+	author = {Alam, Ashraful and Strandman, Harri and Kellomäki, Seppo and Kilpeläinen, Antti},
+	journal = {Canadian Journal of Forest Research},
+	year = {2017},
+	researchRabbitId = {e4f975bc-6c2b-4b56-849d-48cb846dbf0a}
+}
+
+
+@article{accounting_krug_2018,
+	title = {Accounting of GHG emissions and removals from forest management: a long road from Kyoto to Paris},
+	doi = {10.1186/S13021-017-0089-6},
+	author = {Krug, Joachim},
+	journal = {Carbon Balance and Management},
+	year = {2018},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/29330699},
+	researchRabbitId = {d6c4849a-8c1a-4a0f-a6e8-6990620fa20e}
+}
+
+
+@article{effect_seppl_2019,
+	title = {Effect of increased wood harvesting and utilization on required greenhouse gas displacement factors of wood-based products and fuels.},
+	doi = {10.1016/J.JENVMAN.2019.06.031},
+	author = {Seppälä, Jyri and Heinonen, Tero and Pukkala, Timo and Kilpeläinen, Antti and Mattila, Tuomas and Myllyviita, Tanja and Asikainen, Antti and Peltola, Heli},
+	journal = {Journal of Environmental Management},
+	year = {2019},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/31260924},
+	researchRabbitId = {2c5aa2e7-1b23-4947-98f4-6c8e842c7a2b}
+}
+
+
+@article{comparative_schmidt_2004,
+	title = {A comparative life cycle assessment of building insulation products made of stone wool, paper wool and flax: Part 2: comparative assessment},
+	doi = {10.1007/BF02978571},
+	author = {Schmidt, Anders and Jensen, Allan Astrup and Clausen, Anders U. and Kamstrup, Ole and Postlethwaite, Dennis},
+	journal = {International Journal of Life Cycle Assessment},
+	year = {2004},
+	researchRabbitId = {2447f7fc-432c-416a-8dce-813682960fcf}
+}
+
+
+@article{energy_cole_1998,
+	title = {Energy and greenhouse gas emissions associated with the construction of alternative structural systems},
+	doi = {10.1016/S0360-1323(98)00020-1},
+	author = {Cole, Raymond J.},
+	journal = {Building and Environment},
+	year = {1998},
+	researchRabbitId = {083ad37f-c84f-4c15-926d-11c81a11118e}
+}
+
+
+@article{life_suter_2017,
+	title = {Life Cycle Impacts and Benefits of Wood along the Value Chain: The Case of Switzerland},
+	doi = {10.1111/JIEC.12486},
+	author = {Suter, Florian and Steubing, Bernhard and Hellweg, Stefanie},
+	year = {2017},
+	researchRabbitId = {09d8fe30-4d2d-4b04-8e26-01b8f4ee63b8}
+}
+
+
+@article{carbon_oliver_2014,
+	title = {Carbon, Fossil Fuel, and Biodiversity Mitigation With Wood and Forests},
+	doi = {10.1080/10549811.2013.839386},
+	author = {Oliver, Chadwick Dearing and Nassar, Nedal T. and Lippke, Bruce and McCarter, James B.},
+	year = {2014},
+	researchRabbitId = {33b986ea-1930-4c64-b645-95071c639934}
+}
+
+
+@article{climate_haus_2014,
+	title = {Climate mitigation comparison of woody biomass systems with the inclusion of land-use in the reference fossil system},
+	doi = {10.1016/J.BIOMBIOE.2014.04.012},
+	author = {Haus, Sylvia and Gustavsson, Leif and Sathre, Roger},
+	journal = {Biomass & Bioenergy},
+	year = {2014},
+	researchRabbitId = {1f828d9f-dbbe-4600-9b75-7df670efa27a}
+}
+
+
+@article{environmental_hafner_2018,
+	title = {Environmental aspects of material efficiency versus carbon storage in timber buildings},
+	doi = {10.1007/S00107-017-1273-9},
+	author = {Hafner, Annette and Schäfer, Sabrina},
+	journal = {European Journal of Wood and Wood Products},
+	year = {2018},
+	researchRabbitId = {b1184c3a-68bc-48c7-a1ce-271177fa4095}
+}
+
+
+@article{greenhouse_brjesson_2000,
+	title = {Greenhouse gas balances in building construction : wood versus concrete from life-cycle and forest land-use perspectives},
+	doi = {10.1016/S0301-4215(00)00049-5},
+	author = {Börjesson, Pål and Gustavsson, Leif},
+	journal = {Energy Policy},
+	year = {2000},
+	researchRabbitId = {647785e0-4944-4808-8892-b1eca3fd8444}
+}
+
+
+@article{environmental_petersen_2005,
+	title = {Environmental and economic impacts of substitution between wood products and alternative materials: a review of micro-level analyses from Norway and Sweden},
+	doi = {10.1016/S1389-9341(03)00063-7},
+	author = {Petersen, Ann Kristin and Solberg, Birger},
+	journal = {Forest Policy and Economics},
+	year = {2005},
+	researchRabbitId = {cd32bb1b-2e43-4adc-8225-5d561fc9a55a}
+}
+
+
+@article{comparative_robertson_2012,
+	title = {A Comparative Cradle-to-Gate Life Cycle Assessment of Mid-Rise Office Building Construction Alternatives: Laminated Timber or Reinforced Concrete},
+	doi = {10.3390/BUILDINGS2030245},
+	author = {Robertson, Adam Blake and Lam, Frank and Cole, Raymond J.},
+	year = {2012},
+	researchRabbitId = {a1a98570-a40f-4635-8afc-893adfab310d}
+}
+
+
+@article{quantifying_smyth_2014,
+	title = {Quantifying the biophysical climate change mitigation potential of Canada's forest sector},
+	doi = {10.5194/BG-11-3515-2014},
+	author = {Smyth, C. and Stinson, G. and Neilson, Eric T. and Lemprière, Tony C. and Hafer, M. and Rampley, G. J. and Kurz, Werner A.},
+	year = {2014},
+	researchRabbitId = {862a2fb4-8a82-4790-94d7-c5a4e159dc16}
+}
+
+
+@article{variability_gustavsson_2006,
+	title = {Variability in energy and carbon dioxide balances of wood and concrete building materials},
+	doi = {10.1016/J.BUILDENV.2005.04.008},
+	author = {Gustavsson, Leif and Sathre, Roger},
+	journal = {Building and Environment},
+	year = {2006},
+	researchRabbitId = {a9fd47df-5a12-46db-abbc-41727483a32d}
+}
+
+
+@article{synthesis_sathre_2008,
+	title = {A Synthesis of Research on Wood Products and Greenhouse Gas Impacts},
+	author = {Sathre, Roger and O’Connor, Jennifer},
+	year = {2008},
+	researchRabbitId = {4e05f7e8-34c0-4f49-82e2-442654667c4c}
+}
+
+
+@article{energy_sathre_2006,
+	title = {Energy and carbon balances of wood cascade chains},
+	doi = {10.1016/J.RESCONREC.2005.12.008},
+	author = {Sathre, Roger and Gustavsson, Leif},
+	journal = {Resources Conservation and Recycling},
+	year = {2006},
+	researchRabbitId = {ada27035-b51b-4484-bbd8-ed9bd50d51ce}
+}
+
+
+@article{stateoftheart_sathre_2009,
+	title = {A state-of-the-art review of energy and climate effects of wood product substitution},
+	author = {Sathre, Roger and Gustavsson, Leif},
+	year = {2009},
+	researchRabbitId = {c0759b95-8c04-4d69-a80b-3dcd4458427b}
+}
+
+
+@article{life_zabalza_2011,
+	title = {Life cycle assessment of building materials: Comparative analysis of energy and environmental impacts and evaluation of the eco-efficiency improvement potential},
+	doi = {10.1016/J.BUILDENV.2010.12.002},
+	author = {Zabalza, Ignacio and Capilla, Antonio Valero and Aranda‐Usón, Alfonso},
+	journal = {Building and Environment},
+	year = {2011},
+	researchRabbitId = {6d166812-ddf8-4b47-a22b-ff2aa3084ef8}
+}
+
+
+@article{climate_guest_2013,
+	title = {Climate impact potential of utilizing forest residues for bioenergy in Norway},
+	doi = {10.1007/S11027-012-9409-Z},
+	author = {Guest, Geoffrey and Cherubini, Francesco and Strømman, Anders Hammer},
+	journal = {Mitigation and Adaptation Strategies for Global Change},
+	year = {2013},
+	researchRabbitId = {88eef443-5bff-4ee4-9f15-2a77baefd388}
+}
+
+
+@article{woody_zanchi_2012,
+	title = {Is woody bioenergy carbon neutral? A comparative assessment of emissions from consumption of woody bioenergy and fossil fuel},
+	doi = {10.1111/J.1757-1707.2011.01149.X},
+	author = {Zanchi, Giuliana and Peña, Naomi and Bird, Neil},
+	year = {2012},
+	researchRabbitId = {1b1ff15d-bca7-4344-a3c9-1b2a8b034494}
+}
+
+
+@article{carbon_fruehwald_2014,
+	title = {CARBON ASPECTS PROMOTE BUILDING WITH WOOD},
+	author = {Fruehwald, A. and Knauf, Marcus},
+	year = {2014},
+	researchRabbitId = {d48cd330-78f8-494b-a6e2-9d628f5d1f8d}
+}
+
+
+@article{corrim_lippke_2004,
+	title = {CORRIM: Life-Cycle Environmental Performance of Renewable Building Materials},
+	author = {Lippke, Bruce and Wilson, Jim and Perez‐Garcia, John and Bowyer, Jim L. and Meil, Jamie},
+	journal = {Forest Products Journal},
+	year = {2004},
+	researchRabbitId = {30fd8b30-e272-424e-8994-d9af8ffd9398}
+}
+
+
+@article{quantifying_smyth_2014,
+	title = {Quantifying the biophysical climate change mitigation potential of Canada's forest sector},
+	author = {Smyth, CE and Stinson, G and Neilson, E and Lemprière…, TC},
+	journal = {…},
+	year = {2014},
+	researchRabbitId = {7dc6dffa-102f-492d-9980-d01b12d3c3a4}
+}
+
+
+@article{carbon_trmborg_2011,
+	title = {Carbon cycle effects of different strategies for utilisation of forest resources : a review},
+	author = {Trømborg, Erik and Sjølie, Hanne K. and Bergseng, Even and Bolkesjø, Torjus Folsland and Hofstad, Ole and Rørstad, Per Kristian and Solberg, Birger and Sunde, Kathrin},
+	year = {2011},
+	researchRabbitId = {f97d0757-5ea3-4e99-b286-ae0b6695a645}
+}
+
+
+@article{climwood2030_rter_2016,
+	title = {ClimWood2030 - Climate benefits of material substitution by forest biomass and harvested wood products: Perspective 2030. Final report},
+	doi = {10.3220/REP1468328990000},
+	author = {Rüter, Sebastian and Werner, Frank and Forsell, Nicklas and Prins, C. and Vial, Estelle and Levet, Anne-Laure},
+	year = {2016},
+	researchRabbitId = {c16371ff-1d42-4380-b598-3712cd01ecf4}
+}
+
+
+@article{carbon_kohlmaier_1998,
+	title = {Carbon dioxide mitigation in forestry and wood industry.},
+	doi = {10.1007/978-3-662-03608-2},
+	author = {Kohlmaier, Gundolf H. and Weber, M. and Houghton, R. A.},
+	year = {1998},
+	researchRabbitId = {9461451d-81ab-4229-9ce5-9889a74e659e}
+}
+
+
+@article{assessment_meil_2007,
+	title = {An assessment of wood product processing technology advancements between the CORRIM I and II studies},
+	author = {Meil, Jamie and Wilson, Jim and O’Connor, Jennifer and Dangerfield, Jim},
+	journal = {Forest Products Journal},
+	year = {2007},
+	researchRabbitId = {6f0b240a-0d20-4872-80dd-a4f4a9e6d7f4}
+}
+
+
+@article{biofuels_holmgren_2007,
+	title = {Biofuels and climate neutrality - system analysis of production and utilisation},
+	author = {Holmgren, Kristina and Eriksson, Erik and Olsson, Olle and Olsson, Mats and Hillring, Bengt and Parikka, Matti},
+	year = {2007},
+	researchRabbitId = {60ffe090-50cd-4398-a664-98e48b2b2d26}
+}
+
+
+@article{climate_hammar_2020,
+	title = {Climate effects of a forestry company : including biogenic carbon fluxes and substitution effects},
+	author = {Hammar, Torun and Hansson, Per‐Anders and Seleborg, Mikaela and Stendahl, Johan},
+	year = {2020},
+	researchRabbitId = {620f35df-1cc8-4c97-bcfa-5115119c2623}
+}
+
+
+@article{boosting_jonsson_2021,
+	title = {Boosting the EU forest-based bioeconomy: Market, climate, and employment impacts},
+	doi = {10.1016/J.TECHFORE.2020.120478},
+	author = {Jonsson, Ragnar and Rinaldi, Francesca and Pilli, Roberto and Fiorese, Giulia and Hurmekoski, Elias and Cazzaniga, N. E. and Robert, Nicolas and Camia, Andrea},
+	journal = {Technological Forecasting and Social Change},
+	year = {2021},
+	researchRabbitId = {79f4c0d0-ca92-4dc0-b848-a9b6b9c5ac68}
+}
+
+
+@article{radiative_tikka_2025,
+	title = {Radiative Forcing of Aerosol Emissions Under Alternative Wood Use Scenarios in Finland},
+	doi = {10.1111/GCBB.70041},
+	author = {Tikka, Aapo and Irfan, Muhammed and Mielonen, Tero and Kokkola, Harri and Hartikainen, Anni and Sippula, Olli and Kilpeläinen, Antti},
+	journal = {GCB Bioenergy},
+	year = {2025},
+	researchRabbitId = {32708fe7-f8c2-43cb-b2f7-4c14d930df5f}
+}
+
+
+@article{leveraging_canuel_2025,
+	title = {Leveraging Biomass Procurement to Mitigate Carbon Emissions at the Stand Level: A Case Study in Eastern Canadian Forests},
+	doi = {10.1111/GCBB.70067},
+	author = {Canuel, Claudie‐Maude and Thiffault, Évelyne and Thiffault, Nelson},
+	journal = {GCB Bioenergy},
+	year = {2025},
+	researchRabbitId = {5bb379fb-14f9-476f-9070-d2aaf0161226}
+}
+
+
+@article{carbon_niemi_2025,
+	title = {Carbon Credits Through Wood Use: Revisiting the Maximum Potential and Sensitivity to Key Assumptions},
+	doi = {10.1111/GCBB.70017},
+	author = {Niemi, Jari and Soimakallio, Sampo and Hurmekoski, Elias and Myllyviita, Tanja and Kunttu, Janni and Lingua, Federico and Snäll, Tord},
+	journal = {GCB Bioenergy},
+	year = {2025},
+	researchRabbitId = {ff06ac87-5b1f-4f00-b1b6-cb5c1b56f67a}
+}
+
+
+@article{quantifying_gregor_2024,
+	title = {Quantifying the impact of key factors on the carbon mitigation potential of managed temperate forests.},
+	doi = {10.1186/S13021-023-00247-9},
+	author = {Gregor, Konstantin and Krause, Andreas and Reyer, Christopher and Knoke, Thomas and Meyer, Benjamin F. and Suvanto, Susanne and Rammig, Anja},
+	journal = {Carbon Balance and Management},
+	year = {2024},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/38430356},
+	researchRabbitId = {b8ea2ed5-c313-48a0-8ef0-5c906706e719}
+}
+
+
+@article{demanddriven_schulte_2023,
+	title = {Demand-driven climate change mitigation and trade-offs from wood product substitution: The case of Swedish multi-family housing construction},
+	doi = {10.1016/J.JCLEPRO.2023.138487},
+	author = {Schulte, Maximilian and Jonsson, Ragnar and Eggers, Jeannette and Hammar, Torun and Stendahl, Johan and Hansson, Per‐Anders},
+	journal = {Journal of Cleaner Production},
+	year = {2023},
+	researchRabbitId = {af1279a1-9a67-4987-94b3-6b661ffa7426}
+}
+
+
+@article{expanding_hurmekoski_2023,
+	title = {Does expanding wood use in construction and textile markets contribute to climate change mitigation?},
+	doi = {10.1016/J.RSER.2023.113152},
+	author = {Hurmekoski, Elias and Kunttu, Janni and Heinonen, Tero and Pukkala, Timo and Peltola, Heli},
+	journal = {Renewable & Sustainable Energy Reviews},
+	year = {2023},
+	researchRabbitId = {0f753221-e925-4af0-91ed-5772de7bcbe2}
+}
+
+
+@article{integrating_parajuli_2025,
+	title = {Integrating the physical harvesting of dead wood into fuel treatments to reduce wildfire hazards and enhance carbon benefits},
+	doi = {10.1016/J.JENVMAN.2025.124535},
+	author = {Parajuli, Rabindra and Paudel, Asha and Markwith, Scott H.},
+	journal = {Journal of Environmental Management},
+	year = {2025},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/39970664},
+	researchRabbitId = {33bc3ae1-2c88-4532-9936-07d4073c6a21}
+}
+
+
+@article{climate_kallio_2025,
+	title = {Climate change mitigation through alternative uses of Norwegian forest resources},
+	doi = {10.14214/SF.23066},
+	author = {Kallio, Maarit and Strîmbu, Victor F. and Gobakken, Helle and Gobakken, Terje},
+	journal = {Silva Fennica},
+	year = {2025},
+	researchRabbitId = {beca6903-ee80-45b4-b2d4-45ab9a530a18}
+}
+
+
+@article{holistic_zeug_2023,
+	title = {Holistic and integrated life cycle sustainability assessment of prospective biomass to liquid production in Germany},
+	doi = {10.1016/J.JCLEPRO.2023.138046},
+	author = {Zeug, Walther and Yupanqui, Karla Raquel Gan and Bezama, Alberto and Thrän, Daniela},
+	journal = {Journal of Cleaner Production},
+	year = {2023},
+	researchRabbitId = {2d638165-f9de-404d-b3c4-1490fb3b9599}
+}
+
+
+@article{log_laimer_2026,
+	title = {Between a log and a hard place: European forests under competing demands},
+	doi = {10.1007/S10342-026-01899-1},
+	author = {Laimer, Tobias and Gregor, Konstantin and Grote, Rüdiger and Jung, Christopher and Schindler, Dirk and Arneth, Almut},
+	journal = {European Journal of Forest Research},
+	year = {2026},
+	researchRabbitId = {75d1c23e-71f7-4504-af54-b9284074749d}
+}
+
+
+@article{climate_rummukainen_2026,
+	title = {Climate benefits of Nordic forestry revisited, a review},
+	doi = {10.1093/FORESTRY/CPAG017},
+	author = {Rummukainen, Markku},
+	journal = {Forestry An International Journal of Forest Research},
+	year = {2026},
+	researchRabbitId = {a83eaeb5-0a5e-4347-99b7-2e17bb240ff9}
+}
+
+
+@article{optimizing_boiger_2024,
+	title = {Optimizing the utilization of harvested wood products for maximum greenhouse gas emission reduction in a bioeconomy: A multi-objective optimization approach.},
+	doi = {10.1016/J.JENVMAN.2024.123424},
+	author = {Boiger, Theresa and Mair‐Bauernfeind, Claudia and Asada, Raphael and Stern, Tobias},
+	journal = {Journal of Environmental Management},
+	year = {2024},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/39612787},
+	researchRabbitId = {cf58613d-9b2b-43bd-ae82-0ffea229e9e5}
+}
+
+
+@article{climate_kirly_2024,
+	title = {CLIMATE CHANGE MITIGATION THROUGH CARBON STORAGE AND PRODUCT SUBSTITUTION IN THE HUNGARIAN WOOD INDUSTRY},
+	doi = {10.37763/WR.1336-4561/69.1.7286},
+	author = {Király, Éva and Börcsök, Zoltán and Kocsis, Zoltán and Németh, Gábor and Polgár, András and Borovics, Attila},
+	journal = {Wood research},
+	year = {2024},
+	researchRabbitId = {573d8b8d-cde1-4ae7-a5b7-86027bea0800}
+}
+
+
+@article{assessing_moreau_2023,
+	title = {Assessing the Effects of Different Harvesting Practices on the Forestry Sector’s Climate Benefits Potential: A Stand Level Theoretical Study in an Eastern Canadian Boreal Forest},
+	doi = {10.3390/F14061109},
+	author = {Moreau, Lucas and Thiffault, Évelyne and Beauregard, Robert},
+	journal = {Forests},
+	year = {2023},
+	researchRabbitId = {a9b6e53a-af85-4e74-bfde-2f0fe6b9f417}
+}
+
+
+@article{practical_wang_2026,
+	title = {A practical carbon model for managing peri-urban bamboo forests as nature-based climate solutions},
+	doi = {10.1016/J.NBSJ.2026.100322},
+	author = {Wang, Shitephen and Kobayashi, Keito and Tokito, Minori and Huang, Wen-Hung and Liu, Chiung-Pin and Chen, Tsai-Huei and Takanashi, Satoru and Dannoura, Masako},
+	journal = {Nature-Based Solutions},
+	year = {2026},
+	researchRabbitId = {692d10b2-f956-47e0-89a0-7f0d0101e31a}
+}
+
+
+@article{decarbonization_brocco_2025,
+	title = {Decarbonization Through Wood-Based Building Material Substitution in Mountain Territories},
+	doi = {10.1016/J.TFP.2025.101140},
+	author = {Brocco, Sebastian and Morresi, Donato and Berretti, Roberta and Garbarino, Matteo and Motta, Renzo Garza and Vacchiano, Giorgio},
+	journal = {Trees Forests and People},
+	year = {2025},
+	researchRabbitId = {a8f0277c-9539-41ca-9ce8-1bb20ea45d45}
+}
+
+
+@article{climate_haque_2025,
+	title = {Climate change mitigation potential of rural households in Chattogram District of Bangladesh},
+	doi = {10.1038/S41598-025-21063-W},
+	author = {Haque, Md. Zeesun-Ul and Islam, Thuhidul and Baul, Tarit Kumar and Kilpeläinen, Antti and Alam, Ashraful and Jashimuddin, Mohammed and Kar, Shiba},
+	journal = {Scientific Reports},
+	year = {2025},
+	pubmedId = {https://pubmed.ncbi.nlm.nih.gov/41131128},
+	researchRabbitId = {d4918783-56d6-4b07-900f-8b60b2551204}
+}
+
+
+@article{timbertracer_boukhris_2025,
+	title = {TimberTracer: A Comprehensive Framework for the Evaluation of Carbon Sequestration by Forest Management and Substitution of Harvested Wood Products},
+	doi = {10.1101/2024.01.24.576985},
+	author = {Boukhris, Issam and Collalti, Alessio and Lahssini, S. and Dalmonech, Daniela and Nakhle, Farid and Testolin, Riccardo and Chiriacò, Maria Vincenza and Santini, M. and Valentini, Riccardo},
+	journal = {bioRxiv},
+	year = {2025},
+	researchRabbitId = {24ae9162-b2ca-4800-aa81-95b450231def}
+}
+
+
+@article{circumstances_moreau_2023,
+	title = {Under what circumstances can the forest sector contribute to 2050 climate change mitigation targets? A study from forest ecosystems to landfill methane emissions for the province of Quebec, Canada},
+	doi = {10.1111/GCBB.13081},
+	author = {Moreau, Lucas and Thiffault, Évelyne and Kurz, Werner A. and Beauregard, Robert},
+	journal = {GCB Bioenergy},
+	year = {2023},
+	researchRabbitId = {96c22a1d-5a37-4562-8285-cac35c00b071}
+}
+
