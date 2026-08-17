@@ -315,17 +315,182 @@ def unique_options(df, column):
     return sorted(df[column].dropna().astype(str).unique())
 
 
-def apply_filters(df, product_group, end_use, geography):
+# ============================================================
+# Södra-facing prototype ontology
+# ============================================================
+
+ASSORTMENT_ORDER = [
+    "All products",
+    "Sawn wood products",
+    "Engineered wood / building systems",
+    "Paper pulp",
+    "Dissolving pulp / textiles",
+    "Bioenergy & fuels",
+    "Other bioproducts",
+    "Other / unclassified",
+]
+
+
+def build_search_text(row: pd.Series) -> str:
+    cols = [
+        "product_group",
+        "wood_product",
+        "end_use",
+        "alternative_product",
+        "notes",
+    ]
+
+    values = []
+    for col in cols:
+        if col in row.index and not is_missing(row.get(col)):
+            values.append(str(row.get(col)))
+
+    return " ".join(values).lower()
+
+
+def classify_assortment(row: pd.Series) -> str:
+    text = build_search_text(row)
+
+    if any(k in text for k in [
+        "dissolving", "viscose", "lyocell", "textile", "rayon",
+        "cellulosic fibre", "cellulosic fiber",
+    ]):
+        return "Dissolving pulp / textiles"
+
+    if any(k in text for k in [
+        "bioenergy", "energy", "heat", "electricity", "pellet", "fuelwood",
+        "biofuel", "biomethanol", "methanol", "chp", "oil", "coal",
+        "natural gas",
+    ]):
+        return "Bioenergy & fuels"
+
+    if any(k in text for k in [
+        "clt", "cross-laminated", "cross laminated", "glulam", "i-joist",
+        "engineered wood", "wood frame", "timber frame", "building structure",
+        "structural frame", "house", "building",
+    ]):
+        return "Engineered wood / building systems"
+
+    if any(k in text for k in [
+        "paper", "pulp", "carton", "cardboard", "packaging", "fibre product",
+        "fiber product", "tissue",
+    ]):
+        return "Paper pulp"
+
+    if any(k in text for k in [
+        "sawn", "lumber", "solid wood", "timber", "decking", "siding",
+        "cladding", "flooring", "door", "window", "railroad ties",
+        "railway sleeper", "utility pole",
+    ]):
+        return "Sawn wood products"
+
+    if any(k in text for k in [
+        "biochemical", "chemical", "lignin", "biochar", "biomaterial",
+        "bioplastic", "plastic composite",
+    ]):
+        return "Other bioproducts"
+
+    return "Other / unclassified"
+
+
+def classify_end_use(row: pd.Series) -> str:
+    text = build_search_text(row)
+
+    if any(k in text for k in [
+        "clt", "glulam", "frame", "structure", "structural", "house", "building",
+    ]):
+        return "Structural / building systems"
+
+    if any(k in text for k in ["floor", "flooring"]):
+        return "Flooring"
+
+    if "decking" in text:
+        return "Decking"
+
+    if any(k in text for k in ["siding", "cladding", "exterior panel"]):
+        return "Cladding / exterior"
+
+    if any(k in text for k in ["door", "window", "joinery", "furniture"]):
+        return "Joinery / furniture"
+
+    if any(k in text for k in ["packaging", "pallet", "carton", "cardboard", "box"]):
+        return "Packaging"
+
+    if "tissue" in text:
+        return "Tissue"
+
+    if any(k in text for k in [
+        "printing", "graphic paper", "specialty paper", "speciality paper",
+    ]):
+        return "Paper / specialty paper"
+
+    if "viscose" in text:
+        return "Viscose"
+
+    if "lyocell" in text:
+        return "Lyocell"
+
+    if any(k in text for k in ["textile", "rayon"]):
+        return "Other textile fibre"
+
+    if any(k in text for k in ["heat", "district heating"]):
+        return "Heat"
+
+    if any(k in text for k in ["electricity", "power", "chp"]):
+        return "Electricity / CHP"
+
+    if any(k in text for k in ["fuel", "pellet", "methanol", "bioenergy"]):
+        return "Fuel"
+
+    original = clean_text(row.get("end_use", ""))
+    if original:
+        return original
+
+    return "General / unspecified"
+
+
+def add_interface_ontology(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    out["assortment"] = out.apply(classify_assortment, axis=1)
+    out["use_case"] = out.apply(classify_end_use, axis=1)
+    return out
+
+
+def cascading_options(df: pd.DataFrame, column: str) -> list[str]:
+    if column not in df.columns:
+        return ["All"]
+
+    values = sorted(
+        v for v in df[column].dropna().astype(str).unique()
+        if clean_text(v)
+    )
+    return ["All"] + values
+
+
+def apply_smart_filters(
+    df: pd.DataFrame,
+    assortment: str,
+    use_case: str,
+    alternative_product: str,
+    geography: str,
+) -> pd.DataFrame:
     filtered = df.copy()
 
-    if product_group != "All":
-        filtered = filtered[filtered["product_group"] == product_group]
+    if assortment != "All products":
+        filtered = filtered[filtered["assortment"] == assortment]
 
-    if end_use != "All":
-        filtered = filtered[filtered["end_use"] == end_use]
+    if use_case != "All":
+        filtered = filtered[filtered["use_case"] == use_case]
 
-    if geography != "All":
-        filtered = filtered[filtered["geography"] == geography]
+    if alternative_product != "All" and "alternative_product" in filtered.columns:
+        filtered = filtered[
+            filtered["alternative_product"].astype(str) == alternative_product
+        ]
+
+    if geography != "All" and "geography" in filtered.columns:
+        filtered = filtered[
+            filtered["geography"].astype(str) == geography
+        ]
 
     return filtered
 
@@ -466,6 +631,7 @@ def render_supporting_evidence(filtered_full: pd.DataFrame, bib_entries: dict, b
 # ============================================================
 
 df_values, studies = load_data()
+df_values = add_interface_ontology(df_values)
 bib_entries, bib_indices = load_bibliography()
 
 
@@ -522,41 +688,81 @@ with st.expander("Important limitations", expanded=False):
 # Sidebar filters
 # ============================================================
 
-st.sidebar.header("Select product context")
-st.sidebar.caption("Start broad, then narrow the search if needed.")
-
-product_group = st.sidebar.selectbox(
-    "Product group",
-    ["All"] + unique_options(df_values, "product_group"),
+st.sidebar.header("Find evidence for your product")
+st.sidebar.caption(
+    "Choose the product assortment first. The following choices narrow automatically."
 )
 
-end_use = st.sidebar.selectbox(
-    "End use",
-    ["All"] + unique_options(df_values, "end_use"),
+assortment_values = [
+    a for a in ASSORTMENT_ORDER
+    if a == "All products" or a in set(df_values["assortment"].dropna())
+]
+
+assortment = st.sidebar.selectbox(
+    "What product assortment are you working with?",
+    assortment_values,
 )
+
+df_after_assortment = df_values.copy()
+if assortment != "All products":
+    df_after_assortment = df_after_assortment[
+        df_after_assortment["assortment"] == assortment
+    ]
+
+use_case = st.sidebar.selectbox(
+    "What is the product mainly used for?",
+    cascading_options(df_after_assortment, "use_case"),
+)
+
+df_after_use = df_after_assortment.copy()
+if use_case != "All":
+    df_after_use = df_after_use[df_after_use["use_case"] == use_case]
+
+alternative_product = st.sidebar.selectbox(
+    "What does it replace in the study?",
+    cascading_options(df_after_use, "alternative_product"),
+)
+
+df_after_alt = df_after_use.copy()
+if alternative_product != "All" and "alternative_product" in df_after_alt.columns:
+    df_after_alt = df_after_alt[
+        df_after_alt["alternative_product"].astype(str) == alternative_product
+    ]
 
 geography = st.sidebar.selectbox(
-    "Geography",
-    ["All"] + unique_options(df_values, "geography"),
+    "Where is the evidence from?",
+    cascading_options(df_after_alt, "geography"),
 )
 
 mode = st.sidebar.radio(
-    "Recommendation style",
+    "Which summary do you want to see?",
     ["Conservative", "Central", "Optimistic"],
     index=1,
-    help="Conservative = 25th percentile; Central = median; Optimistic = 75th percentile of matching DF observations.",
+    help=(
+        "Conservative = 25th percentile; Central = median; "
+        "Optimistic = 75th percentile of matching DF observations."
+    ),
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Current version:** prototype v0.3")
-st.sidebar.caption("Database and ontology under active development.")
+st.sidebar.markdown("**Current version:** prototype v0.5")
+st.sidebar.caption(
+    "Product assortment categories are a prototype interface ontology and will be refined with stakeholders."
+)
 
 
 # ============================================================
 # Filter data
 # ============================================================
 
-filtered = apply_filters(df_values, product_group, end_use, geography)
+filtered = apply_smart_filters(
+    df=df_values,
+    assortment=assortment,
+    use_case=use_case,
+    alternative_product=alternative_product,
+    geography=geography,
+)
+
 filtered = filtered.dropna(subset=["df_value"])
 recommendation = calculate_recommendation(filtered, mode)
 
@@ -608,37 +814,114 @@ filtered_full = attach_reference_numbers(filtered_full)
 
 
 # ============================================================
-# Plot
+# Evidence-over-time plot
 # ============================================================
 
-st.subheader("Distribution of matching DF values")
+st.subheader("DF evidence over time")
+st.caption(
+    "Each point is one DF observation. Use the filters in the sidebar to explore how the evidence changes by product assortment, use, alternative product, and geography."
+)
 
 plot_df = filtered_full.copy()
-plot_df["Reference"] = plot_df["citation_label"].fillna("") + " " + plot_df["short_ref"].fillna("")
 
-fig = px.box(
-    plot_df,
-    y="df_value",
-    points="all",
-    hover_name="wood_product",
-    hover_data={
-        "Reference": True,
-        "df_value": True,
-        "end_use": True,
-        "geography": True,
-        "product_group": True,
-        "wood_product": False,
-    },
-    title="DF value distribution for the selected evidence subset",
+plot_df["publication_year"] = pd.to_numeric(
+    plot_df["year"],
+    errors="coerce",
 )
+
+plot_df = plot_df.dropna(
+    subset=["publication_year", "df_value"]
+).copy()
+
+plot_df["publication_year"] = plot_df["publication_year"].astype(int)
+
+plot_df["Reference"] = (
+    plot_df["citation_label"].fillna("")
+    + " "
+    + plot_df["short_ref"].fillna("")
+).str.strip()
+
+hover_fields = {
+    "df_value": ":.2f",
+    "publication_year": True,
+    "Reference": True,
+}
+
+for col in [
+    "assortment",
+    "use_case",
+    "wood_product",
+    "alternative_product",
+    "geography",
+]:
+    if col in plot_df.columns:
+        hover_fields[col] = True
+
+fig = px.scatter(
+    plot_df,
+    x="publication_year",
+    y="df_value",
+    hover_name="wood_product" if "wood_product" in plot_df.columns else None,
+    hover_data=hover_fields,
+    labels={
+        "publication_year": "Publication year",
+        "df_value": "Displacement factor (tCO₂e / tCO₂e biogenic carbon)",
+        "assortment": "Product assortment",
+        "use_case": "Use",
+        "alternative_product": "Alternative product",
+        "geography": "Geography",
+    },
+    title="DF observations by publication year",
+)
+
+fig.update_traces(
+    marker={
+        "size": 10,
+        "opacity": 0.78,
+        "line": {"width": 0.5},
+    }
+)
+
+if not plot_df.empty:
+    min_year = int(plot_df["publication_year"].min())
+    max_year = int(plot_df["publication_year"].max())
+
+    fig.update_xaxes(
+        range=[min_year - 1, max_year + 1],
+        dtick=5 if max_year - min_year >= 10 else 1,
+    )
 
 fig.update_layout(
     yaxis_title="Displacement factor (tCO₂e / tCO₂e biogenic carbon)",
-    xaxis_title="",
+    xaxis_title="Publication year",
     showlegend=False,
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
+if not plot_df.empty:
+    years = plot_df["publication_year"]
+    summary1, summary2, summary3, summary4 = st.columns(4)
+
+    summary1.metric(
+        "Evidence period",
+        f"{int(years.min())}–{int(years.max())}",
+    )
+
+    summary2.metric(
+        "Median DF",
+        f"{plot_df['df_value'].median():.2f}",
+    )
+
+    summary3.metric(
+        "Latest study year",
+        int(years.max()),
+    )
+
+    summary4.metric(
+        "Studies shown",
+        int(plot_df["study_id"].nunique()),
+    )
 
 
 # ============================================================
@@ -656,7 +939,7 @@ st.markdown("---")
 with st.expander("How recommendation values are calculated"):
     st.markdown(
         """
-        The app first filters the displacement factor database according to the selected product group, end use, and geography. It then summarizes the remaining DF observations using a transparent percentile-based rule:
+        The app first filters the displacement factor database according to the selected product assortment, use, alternative product, and geography. It then summarizes the remaining DF observations using a transparent percentile-based rule:
 
         - **Conservative:** 25th percentile of matching observations
         - **Central:** median of matching observations
